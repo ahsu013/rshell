@@ -35,7 +35,7 @@ bool letsgedit(bool simi, bool aand, bool oor, int status)
 int main()
 {
 while(1) {
-	cout << getpwuid(getuid()) << "$ "; 
+	cout << getlogin() << "$ "; 
 	string b ; 
 	getline(cin, b); 
 	b = b.substr(0, b.find("#")); 

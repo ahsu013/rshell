@@ -55,7 +55,6 @@ while(1) {
 		aand = true; 
 	if (b.find("||")!= string::npos)
 		oor = true; 
-
 	vector <string> cmd; 
 	if (b.find(";")!=string::npos)
 	{
@@ -63,7 +62,7 @@ while(1) {
 		char *token = strtok(cstring, ";");
 		if (token==NULL)
 			firsterror = true; 
-		if (strcmp(token, "exit") == 0)
+		else if (strcmp(token, "exit") == 0)
 			break; 	
 		while (token!=NULL)
 		{
@@ -77,7 +76,7 @@ while(1) {
 		char *token = strtok(cstring, "&&");
 		if (token == NULL)
 			firsterror = true; 
-		if (strcmp(token, "exit") == 0)
+		else if (strcmp(token, "exit") == 0)
                         break;
 		while (token!=NULL)
 		{
@@ -91,7 +90,7 @@ while(1) {
 		char *token = strtok(cstring, "||");
 		if (token == NULL)
 			firsterror  = true; 
-		if (strcmp(token, "exit") == 0)
+		else if (strcmp(token, "exit") == 0)
                         break;
 		while (token!=NULL)
 		{
@@ -103,22 +102,17 @@ while(1) {
 	{
 		if (strcmp(b.c_str(), "exit") == 0)
                         break;
-		if (b.at(0) == 'e' && b.at(1) == 'x' && b.at(2) == 'i' && b.at(3)=='t')
-			break;
 		cmd.push_back(b);
 	}
-	
 	if (firsterror)
 	{	
 		cout << "syntax Error" << endl; 
-		continue; 
 	}
 	for (unsigned int i = 0 ; i < cmd.size() ; i++) // for each command
 	{
 		if (firsterror)
 		{
 			cout << "syntax Error" << endl;
-			cout << "test"; 
 			break;
 		}
 		

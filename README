@@ -9,4 +9,23 @@ Author & Contributor List:
 	Albert Hsu
 
 File List:
+	Makefile
+	LICENSE
+	/src
+		rshell0.cpp
+	/tests
+		exec.script
 
+rshell overview
+	rshell is a simple custom shell. It a more limitated version of BASH shell. It execute commands by calling execvp command in /bin.
+	Knonw bug and/or limitation:
+		echo into file does not work
+		echo with message that has # does not echo anything after #
+		rshell can not handle differient connectors. It will prompt "Syntax Error if it detects mutliple different connectors
+		connectors at the end of commands will be ignore
+		multiple connectors without commands in between will prompt "Syntax Error" 
+		rshell currently can not cycle through past commands. 
+		rshell currently can not auto complete with tab key
+
+		special built in "exit" command will exit the custom shell. 
+ 

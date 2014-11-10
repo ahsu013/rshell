@@ -128,7 +128,7 @@ void method3(char* input, char* output)
 }
 int main(int argc, char**  argv)
 {
-	if (argc<4)
+	if (strcmp(argv[3], "-o")==0 && argc ==4)
 		method3(argv[1],argv[2]); 
 	else 
 	{

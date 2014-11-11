@@ -1,11 +1,9 @@
-SHELL
-Licensing Information: READ LICENSE 
+SHEL && custom ls command
 
 Project source can be downloaded from:
 	https://github.com/ahsu013/rshell.git
 
 Author & Contributor List:
-	Mike Izbicki
 	Albert Hsu
 
 File List:
@@ -13,11 +11,14 @@ File List:
 	LICENSE
 	/src
 		rshell0.cpp
+		ls.cpp
+		cp.cpp
 	/tests
 		exec.script
 
 rshell overview
 	rshell is a simple custom shell. It a more limitated version of BASH shell. It execute commands by calling execvp command in /bin.
+
 	Knonw bug and/or limitation:
 		echo into file does not work
 		echo with message that has # does not echo anything after #
@@ -29,3 +30,26 @@ rshell overview
 
 		special built in "exit" command will exit the custom shell. 
  
+Cp overview
+
+	Cp is a program that moves the content of a file into another. The default method is to use the max size buffer to copy the content. This is the fastest way to do so. If optional flag "-o" is pass in, it will use all three method and display the wallclock/user timer/system time.   
+
+
+ls overview
+	ls is custom command and has the same functionality as bash's ls command with some limitation. The accepted flags are -l -r -a -R. User can combine flags to get the wanted result. The default order is alphabetical order  
+	-a: List all hidden files
+	-r: List files in reverse order
+	-R: Recursivly call to display all files within folders. 
+	-l: Displays with long formate listing extra information pertaining to the file. 
+		Extra infomations are order:
+			Total number of files in directory.
+			The type of file.
+			User read/write/execute permission.
+			Group read/write/execute permission.	
+			Other read/write/execute permission.
+			Number of links.
+			User name.
+			Group name.
+			File size.	
+			Time of last modification. 
+			Name of file.

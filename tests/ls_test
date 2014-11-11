@@ -1,0 +1,2248 @@
+Script started on Tue 11 Nov 2014 01:41:33 PM PST
+~
+ahsu013@hammer $ cd hw100/
+~/hw100
+ahsu013@hammer $ make ls
+mkdir -p bin
+g++ -Wall -Werror -ansi -pedantic src/ls.cpp -o bin/ls
+~/hw100
+ahsu013@hammer $ bin/ls -l[K[K
+bin          LICENSE      Makefile     README       src          tests        
+~/hw100
+ahsu013@hammer $ bin/ls -a
+.            ..           bin          .git         LICENSE      Makefile     README       src          
+tests        
+~/hw100
+ahsu013@hammer $ bin/ls -ll[K
+Total: 6
+drwx------ 2 ahsu013 csmajs 4096 Nov 11 13:40 bin
+-rw------- 1 ahsu013 csmajs   87 Nov 11 12:55 LICENSE
+-rw------- 1 ahsu013 csmajs  333 Nov 11 13:21 Makefile
+-rw------- 1 ahsu013 csmajs 1994 Nov 11 13:20 README
+drwx------ 2 ahsu013 csmajs 4096 Nov 11 13:39 src
+drwx------ 2 ahsu013 csmajs 4096 Nov 11 13:40 tests
+
+
+~/hw100
+ahsu013@hammer $ bin/ls -R
+.:
+bin          LICENSE      Makefile     README       src          tests        
+./bin:
+ls         ls2        rshell     
+
+./src:
+ls.cpp          rshell0.cpp     
+
+./tests:
+exec.script     ls_test         
+
+~/hw100
+ahsu013@hammer $ bin/ls -r
+tests        src          README       Makefile     LICENSE      bin          
+~/hw100
+ahsu013@hammer $ bin/ls -b[Kv
+No matching flag
+~/hw100
+ahsu013@hammer $ bni[K[Kin/ls -alrR
+.:
+Total: 9
+drwx------ 2 ahsu013 csmajs  4096 Nov 11 13:40 tests
+drwx------ 2 ahsu013 csmajs  4096 Nov 11 13:39 src
+-rw------- 1 ahsu013 csmajs  1994 Nov 11 13:20 README
+-rw------- 1 ahsu013 csmajs   333 Nov 11 13:21 Makefile
+-rw------- 1 ahsu013 csmajs    87 Nov 11 12:55 LICENSE
+drwx------ 8 ahsu013 csmajs  4096 Nov 11 12:55 .git
+drwx------ 2 ahsu013 csmajs  4096 Nov 11 13:40 bin
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./tests:
+Total: 5
+-rw------- 1 ahsu013 csmajs     0 Oct 22 01:50 .nfs0000000000cfe67500000072
+-rw------- 1 ahsu013 csmajs     0 Nov 11 13:40 ls_test
+-rw------- 1 ahsu013 csmajs  6334 Oct 22 01:50 exec.script
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./src:
+Total: 4
+-rw------- 1 ahsu013 csmajs  3282 Oct 22 01:50 rshell0.cpp
+-rw------- 1 ahsu013 csmajs  6824 Nov 11 13:39 ls.cpp
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git:
+Total: 17
+drwx------ 5 ahsu013 csmajs  4096 Oct 21 12:34 refs
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:50 ORIG_HEAD
+drwx------ 67 ahsu013 csmajs  4096 Nov 10 12:34 objects
+-rw------- 1 ahsu013 csmajs   247 Oct 22 01:50 MERGE_MSG~
+drwx------ 3 ahsu013 csmajs  4096 Oct 21 12:29 logs
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 info
+-rw------- 1 ahsu013 csmajs   592 Nov 11 12:55 index
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 hooks
+-rw------- 1 ahsu013 csmajs    19 Nov 11 12:55 HEAD
+-rw------- 1 ahsu013 csmajs     0 Nov 10 12:36 FETCH_HEAD
+-rw------- 1 ahsu013 csmajs    73 Oct 21 12:26 description
+-rw------- 1 ahsu013 csmajs   262 Oct 22 01:40 config
+-rw------- 1 ahsu013 csmajs   391 Oct 22 01:07 COMMIT_EDITMSG~
+-rw------- 1 ahsu013 csmajs    41 Nov  9 17:07 COMMIT_EDITMSG
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 branches
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/refs:
+Total: 5
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:53 tags
+drwx------ 3 ahsu013 csmajs  4096 Oct 21 12:34 remotes
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 heads
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/refs/tags:
+Total: 3
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:53 hw0
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/refs/remotes:
+Total: 3
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 origin
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/refs/remotes/origin:
+Total: 4
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:38 newbranch
+-rw------- 1 ahsu013 csmajs    41 Nov 10 12:34 master
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/refs/heads:
+Total: 5
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:52 master
+-rw------- 1 ahsu013 csmajs    41 Nov  9 17:07 ls
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:48 exec
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/objects:
+Total: 67
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 pack
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 info
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:28 fa
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:44 f4
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 f3
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:54 ee
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:16 ed
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:05 eb
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 ea
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:28 e6
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:36 e3
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 e1
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:48 df
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:10 dd
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 da
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:18 d7
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:15 d5
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 d1
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:18 c6
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:55 bb
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:10 b9
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 b8
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 b7
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:50 a6
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 a5
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:54 a2
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 a1
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:29 9c
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:59 9b
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:16 96
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 94
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:29 8e
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 84
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:24 81
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 80
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:44 78
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 13:08 76
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:36 71
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:06 69
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 13:10 66
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:55 63
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:35 56
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:59 53
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 52
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 4f
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 48
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 45
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:16 41
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:54 3f
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 3c
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 13:10 2b
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:56 29
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:52 26
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:56 23
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:09 21
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:55 20
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 1e
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 1d
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:36 1c
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 17
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:10 12
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:56 0f
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:44 0a
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:07 01
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 00
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/objects/pack:
+Total: 2
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/info:
+Total: 2
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/fa:
+Total: 3
+-r-------- 1 ahsu013 csmajs   817 Oct 21 12:28 70da97691f4c206b7cdc64dc53dc781314557e
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/f4:
+Total: 4
+-r-------- 1 ahsu013 csmajs   155 Oct 22 01:44 c7d78dac1135c14b1acda91f874ae459711072
+-r-------- 1 ahsu013 csmajs   151 Oct 22 00:56 1f8b6f8d18e7de59fa9e45a9253ec967d219d7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/f3:
+Total: 3
+-r-------- 1 ahsu013 csmajs   933 Nov 10 12:34 14d5f711fa773a1f1b0777da59fbd953181045
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/ee:
+Total: 3
+-r-------- 1 ahsu013 csmajs 10623 Oct 21 22:54 d2c8bc923c2ccc5913a3249500e1aebe7fcf78
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/ed:
+Total: 3
+-r-------- 1 ahsu013 csmajs   155 Oct 22 00:16 23ed883585ba147ee126519f090715f5207c52
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/eb:
+Total: 3
+-r-------- 1 ahsu013 csmajs  2334 Nov  9 17:05 cbec2e96849e9b091e54f0c19ec69683969553
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/ea:
+Total: 4
+-r-------- 1 ahsu013 csmajs    55 Oct 22 00:16 cd1999b244aa7c22607da502ce7eff121af09a
+-r-------- 1 ahsu013 csmajs   115 Nov 10 12:34 2eedaa8087575dfe0f80efa756bee9eafbe806
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/e6:
+Total: 3
+-r-------- 1 ahsu013 csmajs    15 Oct 21 12:28 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/e3:
+Total: 3
+-r-------- 1 ahsu013 csmajs   156 Oct 22 01:36 ad37c90aaa3983bf838119cf1b45891d18e1c6
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/e1:
+Total: 3
+-r-------- 1 ahsu013 csmajs   180 Nov  9 17:07 b065e03b259bb24e39cded98aaae0b3674c4c3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/df:
+Total: 3
+-r-------- 1 ahsu013 csmajs   156 Oct 22 01:48 e8f52410c3e060733fcceec6ba55db3cf20b38
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/dd:
+Total: 3
+-r-------- 1 ahsu013 csmajs   160 Oct 21 16:10 bc5bffbc4a4fc2da0f7d823c826431e6e3aea7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/da:
+Total: 3
+-r-------- 1 ahsu013 csmajs   173 Nov  9 17:07 5a86e5bbc15019fca4649f5fc2e22acb164eb9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/d7:
+Total: 3
+-r-------- 1 ahsu013 csmajs   174 Oct 21 16:18 0e6e1732f043782e00bb20abbd98f38ffea538
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/d5:
+Total: 3
+-r-------- 1 ahsu013 csmajs 10597 Oct 22 00:15 815d8578dcea7de9f09f0ce16f915305482c4d
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/d1:
+Total: 3
+-r-------- 1 ahsu013 csmajs    61 Oct 22 00:38 6c8100952860d556405c3938fb2063040cd815
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/c6:
+Total: 3
+-r-------- 1 ahsu013 csmajs   153 Oct 21 16:18 dc738a95fbd1c5062727c4c85fe37b872f7512
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/bb:
+Total: 3
+-r-------- 1 ahsu013 csmajs    51 Oct 21 22:55 2562c7a3f74ce31074ac34655ed7f482e7d203
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/b9:
+Total: 3
+-r-------- 1 ahsu013 csmajs    86 Oct 21 16:10 23920957359dcb8e79db4b5b7c15a5ecf35de5
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/b8:
+Total: 3
+-r-------- 1 ahsu013 csmajs   115 Nov 10 12:34 e93522740d59a2350d780e8fccf077b9ccf7f3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/b7:
+Total: 3
+-r-------- 1 ahsu013 csmajs   908 Nov 10 12:34 673f45d2cf294fa4a9b4e80330f1832edfaf61
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a6:
+Total: 3
+-r-------- 1 ahsu013 csmajs   174 Oct 22 01:50 30a263b2901a6a3d68bd51a773f5b307e962d3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a5:
+Total: 3
+-r-------- 1 ahsu013 csmajs   151 Oct 22 00:38 e5478a53c97335e075de5e424c5ed2ae2876f9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a2:
+Total: 3
+-r-------- 1 ahsu013 csmajs  1141 Oct 22 00:54 fc5863a5939e8df38cbf3101b79c4bd8c82f10
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a1:
+Total: 4
+-r-------- 1 ahsu013 csmajs    85 Oct 21 16:18 97e5af2217e4ec99844d63cccea391aa56c3ec
+-r-------- 1 ahsu013 csmajs   205 Oct 22 01:32 94db5acddcd1fb79373d83ba56913c3919ebd9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/9c:
+Total: 3
+-r-------- 1 ahsu013 csmajs    86 Oct 21 12:29 a1be708ea456bc56def851d1817e1735cc9530
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/9b:
+Total: 3
+-r-------- 1 ahsu013 csmajs   154 Oct 21 23:59 a5a5258f617533b374060dc88fb0b0ff8d73db
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/96:
+Total: 4
+-r-------- 1 ahsu013 csmajs   166 Oct 21 22:55 ed00e8b0a6c014d3c854cfdf76b778379c1beb
+-r-------- 1 ahsu013 csmajs   204 Oct 22 00:16 1d90a337bce5d91237ce5f02cf763bd138b4d6
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/94:
+Total: 4
+-r-------- 1 ahsu013 csmajs   113 Oct 21 22:54 85f1d8301861578b1bdc52c0b365112fd10c38
+-r-------- 1 ahsu013 csmajs  1240 Oct 22 01:32 74deaac2077cc1d456e620c9c49dc603b04dba
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/8e:
+Total: 3
+-r-------- 1 ahsu013 csmajs   147 Oct 21 12:29 bdcbd30dfe6f9030f904729e70efc3faff7c4d
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/84:
+Total: 5
+-r-------- 1 ahsu013 csmajs   789 Oct 21 23:55 e309ca9398f104a793ac5b7d8fd28707c133f8
+-r-------- 1 ahsu013 csmajs   122 Oct 22 01:32 6663764c8da014e8c6145a0800c3fcec6da1ad
+-r-------- 1 ahsu013 csmajs   554 Oct 21 23:59 186dc176c59e37e73a00d09b03b7865f5a59a7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/81:
+Total: 3
+-r-------- 1 ahsu013 csmajs   534 Oct 21 23:24 a2d74be560007ccf552ea2bdcca5f3f789e0f3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/80:
+Total: 3
+-r-------- 1 ahsu013 csmajs    87 Oct 22 00:38 e7a739bb8011949f5e6ccecd20f8d12656e1ae
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/78:
+Total: 4
+-r-------- 1 ahsu013 csmajs   856 Nov  9 17:44 9fe8a6eec6426371d6cdf619b52d5f69df64e4
+-r-------- 1 ahsu013 csmajs   167 Oct 21 23:56 9483845ad08dec9660672fb3b10d1c06aef6b3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/76:
+Total: 3
+-r-------- 1 ahsu013 csmajs    94 Oct 21 13:08 eba62e5a01985a879ded1d4384f4fb076fa1c0
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/71:
+Total: 3
+-r-------- 1 ahsu013 csmajs    97 Oct 22 01:36 1fd38cbd9a243854d12127050b23e8aa124d0e
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/69:
+Total: 4
+-r-------- 1 ahsu013 csmajs   130 Nov  9 17:06 8f9a45bbadf3b6321d13806035cf32ca0ee5df
+-r-------- 1 ahsu013 csmajs  1184 Oct 22 00:15 8c02245038ba637e256a158ad0da523265a8c9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/66:
+Total: 3
+-r-------- 1 ahsu013 csmajs   165 Oct 21 13:10 cb2049a39541f71e4a3f36f39f4dbd9f1961a9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/63:
+Total: 3
+-r-------- 1 ahsu013 csmajs   207 Oct 21 22:55 0c2c6a217c65cbb7cfb8909587171c12169b15
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/56:
+Total: 3
+-r-------- 1 ahsu013 csmajs  1898 Oct 22 00:35 5369a191b476f7433b3ace9fced5d18da13fd8
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/53:
+Total: 3
+-r-------- 1 ahsu013 csmajs   204 Oct 21 23:59 c22647f4f37891ba22cf0745ba1f8ec8295341
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/52:
+Total: 3
+-r-------- 1 ahsu013 csmajs   192 Nov 10 12:34 7ef318ed004a82d330679af6909382f1b74940
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/4f:
+Total: 3
+-r-------- 1 ahsu013 csmajs   158 Nov 10 12:34 04c8e1346ecd47f461e0da93206305ee9e7e1f
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/48:
+Total: 3
+-r-------- 1 ahsu013 csmajs   172 Nov 10 12:34 c18bac114e8ed95b0ee6a49ec68a851ab02f6d
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/45:
+Total: 3
+-r-------- 1 ahsu013 csmajs   177 Oct 22 00:38 14b402fbda56efbac2a9c247e6ee2fb2ce6828
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/41:
+Total: 3
+-r-------- 1 ahsu013 csmajs    51 Oct 22 00:16 246fb2bbb8c5c2b7225f6e2d11923792aa3f49
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/3f:
+Total: 3
+-r-------- 1 ahsu013 csmajs  1192 Oct 21 22:54 5ae3b219c257548f89e8a551f6943add6b4803
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/3c:
+Total: 3
+-r-------- 1 ahsu013 csmajs   166 Oct 22 01:32 05c62a393fda8a9e86cfe075c68ab7bda44f95
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/2b:
+Total: 3
+-r-------- 1 ahsu013 csmajs   118 Oct 21 13:10 b8a18fb43bfdab6c168eb94affca9e74c5c250
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/29:
+Total: 3
+-r-------- 1 ahsu013 csmajs    56 Oct 22 00:56 d4fa0b88c5e4b1b370faffcdbc1280f5fa8bca
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/26:
+Total: 4
+-r-------- 1 ahsu013 csmajs    56 Oct 21 22:55 b801ec092ddebefd0ab8f2795ade9908f921e7
+-r-------- 1 ahsu013 csmajs   188 Oct 22 01:52 a969d6b76b16b514b585e1ac5ad04efa7a5ae6
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/23:
+Total: 4
+-r-------- 1 ahsu013 csmajs    90 Oct 21 23:56 36f285575a07d3b87c1c32d448a75cbe89e806
+-r-------- 1 ahsu013 csmajs   205 Oct 21 23:56 0d9f6a921f06d6f2186111122929c46b81c133
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/21:
+Total: 3
+-r-------- 1 ahsu013 csmajs   157 Oct 22 01:09 a2e6a1b58271f1564d494c5d2eaa7fbd65c345
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/20:
+Total: 3
+-r-------- 1 ahsu013 csmajs   176 Oct 21 22:55 b7f88fe27fef39d39b1a60009ea61a6879b387
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/1e:
+Total: 3
+-r-------- 1 ahsu013 csmajs   174 Nov 10 12:34 71ff071597731d40999be4f04250dde2480573
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/1d:
+Total: 3
+-r-------- 1 ahsu013 csmajs   241 Nov 10 12:34 b8dfcafbf91cf8ef45fd292994fe6843faa7a4
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/1c:
+Total: 3
+-r-------- 1 ahsu013 csmajs   177 Oct 22 01:36 b8f2653811b36b3af91b5755707f3f58acc75e
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/17:
+Total: 3
+-r-------- 1 ahsu013 csmajs   742 Nov 10 12:34 0f6a0631ef38c4db0e22a6d5bc636ef2795ea7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/12:
+Total: 3
+-r-------- 1 ahsu013 csmajs   812 Oct 21 16:10 f608717bf7666827841d715ee324943ee1360f
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/0f:
+Total: 3
+-r-------- 1 ahsu013 csmajs   143 Oct 22 00:56 126d0df0a68a0567614bd42847192bee0b9f28
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/0a:
+Total: 3
+-r-------- 1 ahsu013 csmajs   143 Oct 22 01:44 ea2ddb8e4ac408c486647e3f7d57ead2ee10b5
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/01:
+Total: 3
+-r-------- 1 ahsu013 csmajs   205 Oct 22 01:07 c478f7ed47a7905038e2999e9bae5d0c60278b
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/00:
+Total: 3
+-r-------- 1 ahsu013 csmajs    84 Nov  9 17:07 2dd79f3a556cb81b0126bc08156bb2bb3910aa
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/logs:
+Total: 4
+drwx------ 4 ahsu013 csmajs  4096 Oct 22 01:40 refs
+-rw------- 1 ahsu013 csmajs  8127 Nov 11 12:55 HEAD
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/logs/refs:
+Total: 4
+drwx------ 3 ahsu013 csmajs  4096 Oct 21 12:34 remotes
+drwx------ 2 ahsu013 csmajs  4096 Oct 30 00:10 heads
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/logs/refs/remotes:
+Total: 3
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:12 origin
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/logs/refs/remotes/origin:
+Total: 4
+-rw------- 1 ahsu013 csmajs   288 Oct 22 01:38 newbranch
+-rw------- 1 ahsu013 csmajs   589 Nov 10 12:34 master
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/logs/refs/heads:
+Total: 5
+-rw------- 1 ahsu013 csmajs   522 Oct 22 01:52 master
+-rw------- 1 ahsu013 csmajs   335 Nov  9 17:07 ls
+-rw------- 1 ahsu013 csmajs   807 Oct 22 01:48 exec
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+
+./.git/info:
+Total: 3
+-rw------- 1 ahsu013 csmajs   240 Oct 21 12:26 exclude
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/hooks:
+Total: 11
+-rwx------ 1 ahsu013 csmajs  3611 Oct 21 12:26 update.sample
+-rwx------ 1 ahsu013 csmajs  1239 Oct 21 12:26 prepare-commit-msg.sample
+-rwx------ 1 ahsu013 csmajs  4951 Oct 21 12:26 pre-rebase.sample
+-rwx------ 1 ahsu013 csmajs  1348 Oct 21 12:26 pre-push.sample
+-rwx------ 1 ahsu013 csmajs  1635 Oct 21 12:26 pre-commit.sample
+-rwx------ 1 ahsu013 csmajs   398 Oct 21 12:26 pre-applypatch.sample
+-rwx------ 1 ahsu013 csmajs   189 Oct 21 12:26 post-update.sample
+-rwx------ 1 ahsu013 csmajs   896 Oct 21 12:26 commit-msg.sample
+-rwx------ 1 ahsu013 csmajs   452 Oct 21 12:26 applypatch-msg.sample
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/branches:
+Total: 2
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./bin:
+Total: 5
+-rwx------ 1 ahsu013 csmajs 26817 Nov 11 13:21 rshell
+-rwx------ 1 ahsu013 csmajs 73070 Nov 11 13:21 ls2
+-rwx------ 1 ahsu013 csmajs 70256 Nov 11 13:40 ls
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+~/hw100
+ahsu013@hammer $ ls -a -l -R -r
+.:
+total 52
+drwx------  2 ahsu013 csmajs  4096 Nov 11 13:40 [0m[38;5;27mtests[0m/
+drwx------  2 ahsu013 csmajs  4096 Nov 11 13:39 [38;5;27msrc[0m/
+-rw-------  1 ahsu013 csmajs  1994 Nov 11 13:20 README
+-rw-------  1 ahsu013 csmajs   333 Nov 11 13:21 Makefile
+-rw-------  1 ahsu013 csmajs    87 Nov 11 12:55 LICENSE
+drwx------  8 ahsu013 csmajs  4096 Nov 11 12:55 [38;5;27m.git[0m/
+drwx------  2 ahsu013 csmajs  4096 Nov 11 13:40 [38;5;27mbin[0m/
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 [38;5;27m..[0m/
+drwx------  6 ahsu013 csmajs  4096 Nov 11 13:37 [38;5;27m.[0m/
+
+./tests:
+total 16
+-rw------- 1 ahsu013 csmajs    0 Oct 22 01:50 .nfs0000000000cfe67500000072
+-rw------- 1 ahsu013 csmajs    0 Nov 11 13:40 ls_test
+-rw------- 1 ahsu013 csmajs 6334 Oct 22 01:50 exec.script
+drwx------ 6 ahsu013 csmajs 4096 Nov 11 13:37 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Nov 11 13:40 [38;5;27m.[0m/
+
+./src:
+total 20
+-rw------- 1 ahsu013 csmajs 3282 Oct 22 01:50 rshell0.cpp
+-rw------- 1 ahsu013 csmajs 6824 Nov 11 13:39 ls.cpp
+drwx------ 6 ahsu013 csmajs 4096 Nov 11 13:37 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Nov 11 13:39 [38;5;27m.[0m/
+
+./.git:
+total 52
+drwx------  5 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27mrefs[0m/
+-rw-------  1 ahsu013 csmajs   41 Oct 22 01:50 ORIG_HEAD
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27mobjects[0m/
+-rw-------  1 ahsu013 csmajs  247 Oct 22 01:50 MERGE_MSG~
+drwx------  3 ahsu013 csmajs 4096 Oct 21 12:29 [38;5;27mlogs[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27minfo[0m/
+-rw-------  1 ahsu013 csmajs  592 Nov 11 12:55 index
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27mhooks[0m/
+-rw-------  1 ahsu013 csmajs   19 Nov 11 12:55 HEAD
+-rw-------  1 ahsu013 csmajs    0 Nov 10 12:36 FETCH_HEAD
+-rw-------  1 ahsu013 csmajs   73 Oct 21 12:26 description
+-rw-------  1 ahsu013 csmajs  262 Oct 22 01:40 config
+-rw-------  1 ahsu013 csmajs  391 Oct 22 01:07 COMMIT_EDITMSG~
+-rw-------  1 ahsu013 csmajs   41 Nov  9 17:07 COMMIT_EDITMSG
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27mbranches[0m/
+drwx------  6 ahsu013 csmajs 4096 Nov 11 13:37 [38;5;27m..[0m/
+drwx------  8 ahsu013 csmajs 4096 Nov 11 12:55 [38;5;27m.[0m/
+
+./.git/refs:
+total 20
+drwx------ 2 ahsu013 csmajs 4096 Oct 22 01:53 [38;5;27mtags[0m/
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27mremotes[0m/
+drwx------ 2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27mheads[0m/
+drwx------ 8 ahsu013 csmajs 4096 Nov 11 12:55 [38;5;27m..[0m/
+drwx------ 5 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m.[0m/
+
+./.git/refs/tags:
+total 8
+-rw------- 1 ahsu013 csmajs   41 Oct 22 01:53 hw0
+drwx------ 5 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Oct 22 01:53 [38;5;27m.[0m/
+
+./.git/refs/remotes:
+total 12
+drwx------ 2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27morigin[0m/
+drwx------ 5 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m..[0m/
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m.[0m/
+
+./.git/refs/remotes/origin:
+total 8
+-rw------- 1 ahsu013 csmajs   41 Oct 22 01:38 newbranch
+-rw------- 1 ahsu013 csmajs   41 Nov 10 12:34 master
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/refs/heads:
+total 8
+-rw------- 1 ahsu013 csmajs   41 Oct 22 01:52 master
+-rw------- 1 ahsu013 csmajs   41 Nov  9 17:07 ls
+-rw------- 1 ahsu013 csmajs   41 Oct 22 01:48 exec
+drwx------ 5 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27m.[0m/
+
+./.git/objects:
+total 268
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27mpack[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27minfo[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:28 [38;5;27mfa[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:44 [38;5;27mf4[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27mf3[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:54 [38;5;27mee[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:16 [38;5;27med[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:05 [38;5;27meb[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27mea[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:28 [38;5;27me6[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:36 [38;5;27me3[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27me1[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:48 [38;5;27mdf[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:10 [38;5;27mdd[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27mda[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:18 [38;5;27md7[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:15 [38;5;27md5[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27md1[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:18 [38;5;27mc6[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:55 [38;5;27mbb[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:10 [38;5;27mb9[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27mb8[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27mb7[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:50 [38;5;27ma6[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27ma5[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:54 [38;5;27ma2[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27ma1[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:29 [38;5;27m9c[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:59 [38;5;27m9b[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:16 [38;5;27m96[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27m94[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:29 [38;5;27m8e[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27m84[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:24 [38;5;27m81[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27m80[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:44 [38;5;27m78[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 13:08 [38;5;27m76[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:36 [38;5;27m71[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:06 [38;5;27m69[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 13:10 [38;5;27m66[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:55 [38;5;27m63[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:35 [38;5;27m56[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:59 [38;5;27m53[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m52[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m4f[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m48[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27m45[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:16 [38;5;27m41[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:54 [38;5;27m3f[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27m3c[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 13:10 [38;5;27m2b[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:56 [38;5;27m29[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:52 [38;5;27m26[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:56 [38;5;27m23[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:09 [38;5;27m21[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:55 [38;5;27m20[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m1e[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m1d[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:36 [38;5;27m1c[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m17[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:10 [38;5;27m12[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:56 [38;5;27m0f[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:44 [38;5;27m0a[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:07 [38;5;27m01[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27m00[0m/
+drwx------  8 ahsu013 csmajs 4096 Nov 11 12:55 [38;5;27m..[0m/
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/pack:
+total 8
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27m.[0m/
+
+./.git/objects/info:
+total 8
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27m.[0m/
+
+./.git/objects/fa:
+total 12
+-r--------  1 ahsu013 csmajs  817 Oct 21 12:28 70da97691f4c206b7cdc64dc53dc781314557e
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:28 [38;5;27m.[0m/
+
+./.git/objects/f4:
+total 16
+-r--------  1 ahsu013 csmajs  155 Oct 22 01:44 c7d78dac1135c14b1acda91f874ae459711072
+-r--------  1 ahsu013 csmajs  151 Oct 22 00:56 1f8b6f8d18e7de59fa9e45a9253ec967d219d7
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:44 [38;5;27m.[0m/
+
+./.git/objects/f3:
+total 12
+-r--------  1 ahsu013 csmajs  933 Nov 10 12:34 14d5f711fa773a1f1b0777da59fbd953181045
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/ee:
+total 20
+-r--------  1 ahsu013 csmajs 10623 Oct 21 22:54 d2c8bc923c2ccc5913a3249500e1aebe7fcf78
+drwx------ 67 ahsu013 csmajs  4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs  4096 Oct 21 22:54 [38;5;27m.[0m/
+
+./.git/objects/ed:
+total 12
+-r--------  1 ahsu013 csmajs  155 Oct 22 00:16 23ed883585ba147ee126519f090715f5207c52
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:16 [38;5;27m.[0m/
+
+./.git/objects/eb:
+total 12
+-r--------  1 ahsu013 csmajs 2334 Nov  9 17:05 cbec2e96849e9b091e54f0c19ec69683969553
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:05 [38;5;27m.[0m/
+
+./.git/objects/ea:
+total 12
+-r--------  1 ahsu013 csmajs   55 Oct 22 00:16 cd1999b244aa7c22607da502ce7eff121af09a
+-r--------  1 ahsu013 csmajs  115 Nov 10 12:34 2eedaa8087575dfe0f80efa756bee9eafbe806
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/e6:
+total 8
+-r--------  1 ahsu013 csmajs   15 Oct 21 12:28 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:28 [38;5;27m.[0m/
+
+./.git/objects/e3:
+total 12
+-r--------  1 ahsu013 csmajs  156 Oct 22 01:36 ad37c90aaa3983bf838119cf1b45891d18e1c6
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:36 [38;5;27m.[0m/
+
+./.git/objects/e1:
+total 12
+-r--------  1 ahsu013 csmajs  180 Nov  9 17:07 b065e03b259bb24e39cded98aaae0b3674c4c3
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27m.[0m/
+
+./.git/objects/df:
+total 12
+-r--------  1 ahsu013 csmajs  156 Oct 22 01:48 e8f52410c3e060733fcceec6ba55db3cf20b38
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:48 [38;5;27m.[0m/
+
+./.git/objects/dd:
+total 12
+-r--------  1 ahsu013 csmajs  160 Oct 21 16:10 bc5bffbc4a4fc2da0f7d823c826431e6e3aea7
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:10 [38;5;27m.[0m/
+
+./.git/objects/da:
+total 12
+-r--------  1 ahsu013 csmajs  173 Nov  9 17:07 5a86e5bbc15019fca4649f5fc2e22acb164eb9
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27m.[0m/
+
+./.git/objects/d7:
+total 12
+-r--------  1 ahsu013 csmajs  174 Oct 21 16:18 0e6e1732f043782e00bb20abbd98f38ffea538
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:18 [38;5;27m.[0m/
+
+./.git/objects/d5:
+total 20
+-r--------  1 ahsu013 csmajs 10597 Oct 22 00:15 815d8578dcea7de9f09f0ce16f915305482c4d
+drwx------ 67 ahsu013 csmajs  4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs  4096 Oct 22 00:15 [38;5;27m.[0m/
+
+./.git/objects/d1:
+total 8
+-r--------  1 ahsu013 csmajs   61 Oct 22 00:38 6c8100952860d556405c3938fb2063040cd815
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27m.[0m/
+
+./.git/objects/c6:
+total 12
+-r--------  1 ahsu013 csmajs  153 Oct 21 16:18 dc738a95fbd1c5062727c4c85fe37b872f7512
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:18 [38;5;27m.[0m/
+
+./.git/objects/bb:
+total 8
+-r--------  1 ahsu013 csmajs   51 Oct 21 22:55 2562c7a3f74ce31074ac34655ed7f482e7d203
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:55 [38;5;27m.[0m/
+
+./.git/objects/b9:
+total 12
+-r--------  1 ahsu013 csmajs   86 Oct 21 16:10 23920957359dcb8e79db4b5b7c15a5ecf35de5
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:10 [38;5;27m.[0m/
+
+./.git/objects/b8:
+total 12
+-r--------  1 ahsu013 csmajs  115 Nov 10 12:34 e93522740d59a2350d780e8fccf077b9ccf7f3
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/b7:
+total 12
+-r--------  1 ahsu013 csmajs  908 Nov 10 12:34 673f45d2cf294fa4a9b4e80330f1832edfaf61
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/a6:
+total 12
+-r--------  1 ahsu013 csmajs  174 Oct 22 01:50 30a263b2901a6a3d68bd51a773f5b307e962d3
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:50 [38;5;27m.[0m/
+
+./.git/objects/a5:
+total 12
+-r--------  1 ahsu013 csmajs  151 Oct 22 00:38 e5478a53c97335e075de5e424c5ed2ae2876f9
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27m.[0m/
+
+./.git/objects/a2:
+total 12
+-r--------  1 ahsu013 csmajs 1141 Oct 22 00:54 fc5863a5939e8df38cbf3101b79c4bd8c82f10
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:54 [38;5;27m.[0m/
+
+./.git/objects/a1:
+total 16
+-r--------  1 ahsu013 csmajs   85 Oct 21 16:18 97e5af2217e4ec99844d63cccea391aa56c3ec
+-r--------  1 ahsu013 csmajs  205 Oct 22 01:32 94db5acddcd1fb79373d83ba56913c3919ebd9
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27m.[0m/
+
+./.git/objects/9c:
+total 12
+-r--------  1 ahsu013 csmajs   86 Oct 21 12:29 a1be708ea456bc56def851d1817e1735cc9530
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:29 [38;5;27m.[0m/
+
+./.git/objects/9b:
+total 12
+-r--------  1 ahsu013 csmajs  154 Oct 21 23:59 a5a5258f617533b374060dc88fb0b0ff8d73db
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:59 [38;5;27m.[0m/
+
+./.git/objects/96:
+total 16
+-r--------  1 ahsu013 csmajs  166 Oct 21 22:55 ed00e8b0a6c014d3c854cfdf76b778379c1beb
+-r--------  1 ahsu013 csmajs  204 Oct 22 00:16 1d90a337bce5d91237ce5f02cf763bd138b4d6
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:16 [38;5;27m.[0m/
+
+./.git/objects/94:
+total 16
+-r--------  1 ahsu013 csmajs  113 Oct 21 22:54 85f1d8301861578b1bdc52c0b365112fd10c38
+-r--------  1 ahsu013 csmajs 1240 Oct 22 01:32 74deaac2077cc1d456e620c9c49dc603b04dba
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27m.[0m/
+
+./.git/objects/8e:
+total 12
+-r--------  1 ahsu013 csmajs  147 Oct 21 12:29 bdcbd30dfe6f9030f904729e70efc3faff7c4d
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 12:29 [38;5;27m.[0m/
+
+./.git/objects/84:
+total 20
+-r--------  1 ahsu013 csmajs  789 Oct 21 23:55 e309ca9398f104a793ac5b7d8fd28707c133f8
+-r--------  1 ahsu013 csmajs  122 Oct 22 01:32 6663764c8da014e8c6145a0800c3fcec6da1ad
+-r--------  1 ahsu013 csmajs  554 Oct 21 23:59 186dc176c59e37e73a00d09b03b7865f5a59a7
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27m.[0m/
+
+./.git/objects/81:
+total 12
+-r--------  1 ahsu013 csmajs  534 Oct 21 23:24 a2d74be560007ccf552ea2bdcca5f3f789e0f3
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:24 [38;5;27m.[0m/
+
+./.git/objects/80:
+total 12
+-r--------  1 ahsu013 csmajs   87 Oct 22 00:38 e7a739bb8011949f5e6ccecd20f8d12656e1ae
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27m.[0m/
+
+./.git/objects/78:
+total 16
+-r--------  1 ahsu013 csmajs  856 Nov  9 17:44 9fe8a6eec6426371d6cdf619b52d5f69df64e4
+-r--------  1 ahsu013 csmajs  167 Oct 21 23:56 9483845ad08dec9660672fb3b10d1c06aef6b3
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:44 [38;5;27m.[0m/
+
+./.git/objects/76:
+total 12
+-r--------  1 ahsu013 csmajs   94 Oct 21 13:08 eba62e5a01985a879ded1d4384f4fb076fa1c0
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 13:08 [38;5;27m.[0m/
+
+./.git/objects/71:
+total 12
+-r--------  1 ahsu013 csmajs   97 Oct 22 01:36 1fd38cbd9a243854d12127050b23e8aa124d0e
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:36 [38;5;27m.[0m/
+
+./.git/objects/69:
+total 16
+-r--------  1 ahsu013 csmajs  130 Nov  9 17:06 8f9a45bbadf3b6321d13806035cf32ca0ee5df
+-r--------  1 ahsu013 csmajs 1184 Oct 22 00:15 8c02245038ba637e256a158ad0da523265a8c9
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:06 [38;5;27m.[0m/
+
+./.git/objects/66:
+total 12
+-r--------  1 ahsu013 csmajs  165 Oct 21 13:10 cb2049a39541f71e4a3f36f39f4dbd9f1961a9
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 13:10 [38;5;27m.[0m/
+
+./.git/objects/63:
+total 12
+-r--------  1 ahsu013 csmajs  207 Oct 21 22:55 0c2c6a217c65cbb7cfb8909587171c12169b15
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:55 [38;5;27m.[0m/
+
+./.git/objects/56:
+total 12
+-r--------  1 ahsu013 csmajs 1898 Oct 22 00:35 5369a191b476f7433b3ace9fced5d18da13fd8
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:35 [38;5;27m.[0m/
+
+./.git/objects/53:
+total 12
+-r--------  1 ahsu013 csmajs  204 Oct 21 23:59 c22647f4f37891ba22cf0745ba1f8ec8295341
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:59 [38;5;27m.[0m/
+
+./.git/objects/52:
+total 12
+-r--------  1 ahsu013 csmajs  192 Nov 10 12:34 7ef318ed004a82d330679af6909382f1b74940
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/4f:
+total 12
+-r--------  1 ahsu013 csmajs  158 Nov 10 12:34 04c8e1346ecd47f461e0da93206305ee9e7e1f
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/48:
+total 12
+-r--------  1 ahsu013 csmajs  172 Nov 10 12:34 c18bac114e8ed95b0ee6a49ec68a851ab02f6d
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/45:
+total 12
+-r--------  1 ahsu013 csmajs  177 Oct 22 00:38 14b402fbda56efbac2a9c247e6ee2fb2ce6828
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:38 [38;5;27m.[0m/
+
+./.git/objects/41:
+total 8
+-r--------  1 ahsu013 csmajs   51 Oct 22 00:16 246fb2bbb8c5c2b7225f6e2d11923792aa3f49
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:16 [38;5;27m.[0m/
+
+./.git/objects/3f:
+total 12
+-r--------  1 ahsu013 csmajs 1192 Oct 21 22:54 5ae3b219c257548f89e8a551f6943add6b4803
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:54 [38;5;27m.[0m/
+
+./.git/objects/3c:
+total 12
+-r--------  1 ahsu013 csmajs  166 Oct 22 01:32 05c62a393fda8a9e86cfe075c68ab7bda44f95
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:32 [38;5;27m.[0m/
+
+./.git/objects/2b:
+total 12
+-r--------  1 ahsu013 csmajs  118 Oct 21 13:10 b8a18fb43bfdab6c168eb94affca9e74c5c250
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 13:10 [38;5;27m.[0m/
+
+./.git/objects/29:
+total 8
+-r--------  1 ahsu013 csmajs   56 Oct 22 00:56 d4fa0b88c5e4b1b370faffcdbc1280f5fa8bca
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:56 [38;5;27m.[0m/
+
+./.git/objects/26:
+total 12
+-r--------  1 ahsu013 csmajs   56 Oct 21 22:55 b801ec092ddebefd0ab8f2795ade9908f921e7
+-r--------  1 ahsu013 csmajs  188 Oct 22 01:52 a969d6b76b16b514b585e1ac5ad04efa7a5ae6
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:52 [38;5;27m.[0m/
+
+./.git/objects/23:
+total 16
+-r--------  1 ahsu013 csmajs   90 Oct 21 23:56 36f285575a07d3b87c1c32d448a75cbe89e806
+-r--------  1 ahsu013 csmajs  205 Oct 21 23:56 0d9f6a921f06d6f2186111122929c46b81c133
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 23:56 [38;5;27m.[0m/
+
+./.git/objects/21:
+total 12
+-r--------  1 ahsu013 csmajs  157 Oct 22 01:09 a2e6a1b58271f1564d494c5d2eaa7fbd65c345
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:09 [38;5;27m.[0m/
+
+./.git/objects/20:
+total 12
+-r--------  1 ahsu013 csmajs  176 Oct 21 22:55 b7f88fe27fef39d39b1a60009ea61a6879b387
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 22:55 [38;5;27m.[0m/
+
+./.git/objects/1e:
+total 12
+-r--------  1 ahsu013 csmajs  174 Nov 10 12:34 71ff071597731d40999be4f04250dde2480573
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/1d:
+total 12
+-r--------  1 ahsu013 csmajs  241 Nov 10 12:34 b8dfcafbf91cf8ef45fd292994fe6843faa7a4
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/1c:
+total 12
+-r--------  1 ahsu013 csmajs  177 Oct 22 01:36 b8f2653811b36b3af91b5755707f3f58acc75e
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:36 [38;5;27m.[0m/
+
+./.git/objects/17:
+total 12
+-r--------  1 ahsu013 csmajs  742 Nov 10 12:34 0f6a0631ef38c4db0e22a6d5bc636ef2795ea7
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m.[0m/
+
+./.git/objects/12:
+total 12
+-r--------  1 ahsu013 csmajs  812 Oct 21 16:10 f608717bf7666827841d715ee324943ee1360f
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 21 16:10 [38;5;27m.[0m/
+
+./.git/objects/0f:
+total 12
+-r--------  1 ahsu013 csmajs  143 Oct 22 00:56 126d0df0a68a0567614bd42847192bee0b9f28
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 00:56 [38;5;27m.[0m/
+
+./.git/objects/0a:
+total 12
+-r--------  1 ahsu013 csmajs  143 Oct 22 01:44 ea2ddb8e4ac408c486647e3f7d57ead2ee10b5
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:44 [38;5;27m.[0m/
+
+./.git/objects/01:
+total 12
+-r--------  1 ahsu013 csmajs  205 Oct 22 01:07 c478f7ed47a7905038e2999e9bae5d0c60278b
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Oct 22 01:07 [38;5;27m.[0m/
+
+./.git/objects/00:
+total 12
+-r--------  1 ahsu013 csmajs   84 Nov  9 17:07 2dd79f3a556cb81b0126bc08156bb2bb3910aa
+drwx------ 67 ahsu013 csmajs 4096 Nov 10 12:34 [38;5;27m..[0m/
+drwx------  2 ahsu013 csmajs 4096 Nov  9 17:07 [38;5;27m.[0m/
+
+./.git/logs:
+total 20
+drwx------ 4 ahsu013 csmajs 4096 Oct 22 01:40 [38;5;27mrefs[0m/
+-rw------- 1 ahsu013 csmajs 8127 Nov 11 12:55 HEAD
+drwx------ 8 ahsu013 csmajs 4096 Nov 11 12:55 [38;5;27m..[0m/
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:29 [38;5;27m.[0m/
+
+./.git/logs/refs:
+total 16
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27mremotes[0m/
+drwx------ 2 ahsu013 csmajs 4096 Oct 30 00:10 [38;5;27mheads[0m/
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:29 [38;5;27m..[0m/
+drwx------ 4 ahsu013 csmajs 4096 Oct 22 01:40 [38;5;27m.[0m/
+
+./.git/logs/refs/remotes:
+total 12
+drwx------ 2 ahsu013 csmajs 4096 Oct 22 01:12 [38;5;27morigin[0m/
+drwx------ 4 ahsu013 csmajs 4096 Oct 22 01:40 [38;5;27m..[0m/
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m.[0m/
+
+./.git/logs/refs/remotes/origin:
+total 16
+-rw------- 1 ahsu013 csmajs  288 Oct 22 01:38 newbranch
+-rw------- 1 ahsu013 csmajs  589 Nov 10 12:34 master
+drwx------ 3 ahsu013 csmajs 4096 Oct 21 12:34 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Oct 22 01:12 [38;5;27m.[0m/
+
+./.git/logs/refs/heads:
+total 20
+-rw------- 1 ahsu013 csmajs  522 Oct 22 01:52 master
+-rw------- 1 ahsu013 csmajs  335 Nov  9 17:07 ls
+-rw------- 1 ahsu013 csmajs  807 Oct 22 01:48 exec
+drwx------ 4 ahsu013 csmajs 4096 Oct 22 01:40 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Oct 30 00:10 [38;5;27m.[0m/
+
+./.git/info:
+total 12
+-rw------- 1 ahsu013 csmajs  240 Oct 21 12:26 exclude
+drwx------ 8 ahsu013 csmajs 4096 Nov 11 12:55 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27m.[0m/
+
+./.git/hooks:
+total 48
+-rwx------ 1 ahsu013 csmajs 3611 Oct 21 12:26 [38;5;34mupdate.sample[0m*
+-rwx------ 1 ahsu013 csmajs 4951 Oct 21 12:26 [38;5;34mpre-rebase.sample[0m*
+-rwx------ 1 ahsu013 csmajs 1348 Oct 21 12:26 [38;5;34mpre-push.sample[0m*
+-rwx------ 1 ahsu013 csmajs 1239 Oct 21 12:26 [38;5;34mprepare-commit-msg.sample[0m*
+-rwx------ 1 ahsu013 csmajs 1635 Oct 21 12:26 [38;5;34mpre-commit.sample[0m*
+-rwx------ 1 ahsu013 csmajs  398 Oct 21 12:26 [38;5;34mpre-applypatch.sample[0m*
+-rwx------ 1 ahsu013 csmajs  189 Oct 21 12:26 [38;5;34mpost-update.sample[0m*
+-rwx------ 1 ahsu013 csmajs  896 Oct 21 12:26 [38;5;34mcommit-msg.sample[0m*
+-rwx------ 1 ahsu013 csmajs  452 Oct 21 12:26 [38;5;34mapplypatch-msg.sample[0m*
+drwx------ 8 ahsu013 csmajs 4096 Nov 11 12:55 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27m.[0m/
+
+./.git/branches:
+total 8
+drwx------ 8 ahsu013 csmajs 4096 Nov 11 12:55 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs 4096 Oct 21 12:26 [38;5;27m.[0m/
+
+./bin:
+total 188
+-rwx------ 1 ahsu013 csmajs 26817 Nov 11 13:21 [38;5;34mrshell[0m*
+-rwx------ 1 ahsu013 csmajs 73070 Nov 11 13:21 [38;5;34mls2[0m*
+-rwx------ 1 ahsu013 csmajs 70256 Nov 11 13:40 [38;5;34mls[0m*
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 [38;5;27m..[0m/
+drwx------ 2 ahsu013 csmajs  4096 Nov 11 13:40 [38;5;27m.[0m/
+[m~/hw100
+ahsu013@hammer $ ls -a -l -R -r[4hb[4l[4hi[4l[4hn[4l[4h/[4l
+.:
+Total: 9
+drwx------ 2 ahsu013 csmajs  4096 Nov 11 13:40 tests
+drwx------ 2 ahsu013 csmajs  4096 Nov 11 13:39 src
+-rw------- 1 ahsu013 csmajs  1994 Nov 11 13:20 README
+-rw------- 1 ahsu013 csmajs   333 Nov 11 13:21 Makefile
+-rw------- 1 ahsu013 csmajs    87 Nov 11 12:55 LICENSE
+drwx------ 8 ahsu013 csmajs  4096 Nov 11 12:55 .git
+drwx------ 2 ahsu013 csmajs  4096 Nov 11 13:40 bin
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./tests:
+Total: 5
+-rw------- 1 ahsu013 csmajs     0 Oct 22 01:50 .nfs0000000000cfe67500000072
+-rw------- 1 ahsu013 csmajs 32768 Nov 11 13:41 ls_test
+-rw------- 1 ahsu013 csmajs  6334 Oct 22 01:50 exec.script
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./src:
+Total: 4
+-rw------- 1 ahsu013 csmajs  3282 Oct 22 01:50 rshell0.cpp
+-rw------- 1 ahsu013 csmajs  6824 Nov 11 13:39 ls.cpp
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git:
+Total: 17
+drwx------ 5 ahsu013 csmajs  4096 Oct 21 12:34 refs
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:50 ORIG_HEAD
+drwx------ 67 ahsu013 csmajs  4096 Nov 10 12:34 objects
+-rw------- 1 ahsu013 csmajs   247 Oct 22 01:50 MERGE_MSG~
+drwx------ 3 ahsu013 csmajs  4096 Oct 21 12:29 logs
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 info
+-rw------- 1 ahsu013 csmajs   592 Nov 11 12:55 index
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 hooks
+-rw------- 1 ahsu013 csmajs    19 Nov 11 12:55 HEAD
+-rw------- 1 ahsu013 csmajs     0 Nov 10 12:36 FETCH_HEAD
+-rw------- 1 ahsu013 csmajs    73 Oct 21 12:26 description
+-rw------- 1 ahsu013 csmajs   262 Oct 22 01:40 config
+-rw------- 1 ahsu013 csmajs   391 Oct 22 01:07 COMMIT_EDITMSG~
+-rw------- 1 ahsu013 csmajs    41 Nov  9 17:07 COMMIT_EDITMSG
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 branches
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/refs:
+Total: 5
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:53 tags
+drwx------ 3 ahsu013 csmajs  4096 Oct 21 12:34 remotes
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 heads
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/refs/tags:
+Total: 3
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:53 hw0
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/refs/remotes:
+Total: 3
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 origin
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/refs/remotes/origin:
+Total: 4
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:38 newbranch
+-rw------- 1 ahsu013 csmajs    41 Nov 10 12:34 master
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/refs/heads:
+Total: 5
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:52 master
+-rw------- 1 ahsu013 csmajs    41 Nov  9 17:07 ls
+-rw------- 1 ahsu013 csmajs    41 Oct 22 01:48 exec
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/objects:
+Total: 67
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 pack
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:26 info
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:28 fa
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:44 f4
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 f3
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:54 ee
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:16 ed
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:05 eb
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 ea
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:28 e6
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:36 e3
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 e1
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:48 df
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:10 dd
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 da
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:18 d7
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:15 d5
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 d1
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:18 c6
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:55 bb
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:10 b9
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 b8
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 b7
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:50 a6
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 a5
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:54 a2
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 a1
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:29 9c
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:59 9b
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:16 96
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 94
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 12:29 8e
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 84
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:24 81
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 80
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:44 78
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 13:08 76
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:36 71
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:06 69
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 13:10 66
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:55 63
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:35 56
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:59 53
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 52
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 4f
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 48
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:38 45
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:16 41
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:54 3f
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:32 3c
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 13:10 2b
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:56 29
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:52 26
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 23:56 23
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:09 21
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 22:55 20
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 1e
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 1d
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:36 1c
+drwx------ 2 ahsu013 csmajs  4096 Nov 10 12:34 17
+drwx------ 2 ahsu013 csmajs  4096 Oct 21 16:10 12
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 00:56 0f
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:44 0a
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:07 01
+drwx------ 2 ahsu013 csmajs  4096 Nov  9 17:07 00
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/objects/pack:
+Total: 2
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/info:
+Total: 2
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/fa:
+Total: 3
+-r-------- 1 ahsu013 csmajs   817 Oct 21 12:28 70da97691f4c206b7cdc64dc53dc781314557e
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/f4:
+Total: 4
+-r-------- 1 ahsu013 csmajs   155 Oct 22 01:44 c7d78dac1135c14b1acda91f874ae459711072
+-r-------- 1 ahsu013 csmajs   151 Oct 22 00:56 1f8b6f8d18e7de59fa9e45a9253ec967d219d7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/f3:
+Total: 3
+-r-------- 1 ahsu013 csmajs   933 Nov 10 12:34 14d5f711fa773a1f1b0777da59fbd953181045
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/ee:
+Total: 3
+-r-------- 1 ahsu013 csmajs 10623 Oct 21 22:54 d2c8bc923c2ccc5913a3249500e1aebe7fcf78
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/ed:
+Total: 3
+-r-------- 1 ahsu013 csmajs   155 Oct 22 00:16 23ed883585ba147ee126519f090715f5207c52
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/eb:
+Total: 3
+-r-------- 1 ahsu013 csmajs  2334 Nov  9 17:05 cbec2e96849e9b091e54f0c19ec69683969553
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/ea:
+Total: 4
+-r-------- 1 ahsu013 csmajs    55 Oct 22 00:16 cd1999b244aa7c22607da502ce7eff121af09a
+-r-------- 1 ahsu013 csmajs   115 Nov 10 12:34 2eedaa8087575dfe0f80efa756bee9eafbe806
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/e6:
+Total: 3
+-r-------- 1 ahsu013 csmajs    15 Oct 21 12:28 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/e3:
+Total: 3
+-r-------- 1 ahsu013 csmajs   156 Oct 22 01:36 ad37c90aaa3983bf838119cf1b45891d18e1c6
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/e1:
+Total: 3
+-r-------- 1 ahsu013 csmajs   180 Nov  9 17:07 b065e03b259bb24e39cded98aaae0b3674c4c3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/df:
+Total: 3
+-r-------- 1 ahsu013 csmajs   156 Oct 22 01:48 e8f52410c3e060733fcceec6ba55db3cf20b38
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/dd:
+Total: 3
+-r-------- 1 ahsu013 csmajs   160 Oct 21 16:10 bc5bffbc4a4fc2da0f7d823c826431e6e3aea7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/da:
+Total: 3
+-r-------- 1 ahsu013 csmajs   173 Nov  9 17:07 5a86e5bbc15019fca4649f5fc2e22acb164eb9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/d7:
+Total: 3
+-r-------- 1 ahsu013 csmajs   174 Oct 21 16:18 0e6e1732f043782e00bb20abbd98f38ffea538
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/d5:
+Total: 3
+-r-------- 1 ahsu013 csmajs 10597 Oct 22 00:15 815d8578dcea7de9f09f0ce16f915305482c4d
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/d1:
+Total: 3
+-r-------- 1 ahsu013 csmajs    61 Oct 22 00:38 6c8100952860d556405c3938fb2063040cd815
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/c6:
+Total: 3
+-r-------- 1 ahsu013 csmajs   153 Oct 21 16:18 dc738a95fbd1c5062727c4c85fe37b872f7512
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/bb:
+Total: 3
+-r-------- 1 ahsu013 csmajs    51 Oct 21 22:55 2562c7a3f74ce31074ac34655ed7f482e7d203
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/b9:
+Total: 3
+-r-------- 1 ahsu013 csmajs    86 Oct 21 16:10 23920957359dcb8e79db4b5b7c15a5ecf35de5
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/b8:
+Total: 3
+-r-------- 1 ahsu013 csmajs   115 Nov 10 12:34 e93522740d59a2350d780e8fccf077b9ccf7f3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/b7:
+Total: 3
+-r-------- 1 ahsu013 csmajs   908 Nov 10 12:34 673f45d2cf294fa4a9b4e80330f1832edfaf61
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a6:
+Total: 3
+-r-------- 1 ahsu013 csmajs   174 Oct 22 01:50 30a263b2901a6a3d68bd51a773f5b307e962d3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a5:
+Total: 3
+-r-------- 1 ahsu013 csmajs   151 Oct 22 00:38 e5478a53c97335e075de5e424c5ed2ae2876f9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a2:
+Total: 3
+-r-------- 1 ahsu013 csmajs  1141 Oct 22 00:54 fc5863a5939e8df38cbf3101b79c4bd8c82f10
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/a1:
+Total: 4
+-r-------- 1 ahsu013 csmajs    85 Oct 21 16:18 97e5af2217e4ec99844d63cccea391aa56c3ec
+-r-------- 1 ahsu013 csmajs   205 Oct 22 01:32 94db5acddcd1fb79373d83ba56913c3919ebd9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/9c:
+Total: 3
+-r-------- 1 ahsu013 csmajs    86 Oct 21 12:29 a1be708ea456bc56def851d1817e1735cc9530
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/9b:
+Total: 3
+-r-------- 1 ahsu013 csmajs   154 Oct 21 23:59 a5a5258f617533b374060dc88fb0b0ff8d73db
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/96:
+Total: 4
+-r-------- 1 ahsu013 csmajs   166 Oct 21 22:55 ed00e8b0a6c014d3c854cfdf76b778379c1beb
+-r-------- 1 ahsu013 csmajs   204 Oct 22 00:16 1d90a337bce5d91237ce5f02cf763bd138b4d6
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/94:
+Total: 4
+-r-------- 1 ahsu013 csmajs   113 Oct 21 22:54 85f1d8301861578b1bdc52c0b365112fd10c38
+-r-------- 1 ahsu013 csmajs  1240 Oct 22 01:32 74deaac2077cc1d456e620c9c49dc603b04dba
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/8e:
+Total: 3
+-r-------- 1 ahsu013 csmajs   147 Oct 21 12:29 bdcbd30dfe6f9030f904729e70efc3faff7c4d
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/84:
+Total: 5
+-r-------- 1 ahsu013 csmajs   789 Oct 21 23:55 e309ca9398f104a793ac5b7d8fd28707c133f8
+-r-------- 1 ahsu013 csmajs   122 Oct 22 01:32 6663764c8da014e8c6145a0800c3fcec6da1ad
+-r-------- 1 ahsu013 csmajs   554 Oct 21 23:59 186dc176c59e37e73a00d09b03b7865f5a59a7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/81:
+Total: 3
+-r-------- 1 ahsu013 csmajs   534 Oct 21 23:24 a2d74be560007ccf552ea2bdcca5f3f789e0f3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/80:
+Total: 3
+-r-------- 1 ahsu013 csmajs    87 Oct 22 00:38 e7a739bb8011949f5e6ccecd20f8d12656e1ae
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/78:
+Total: 4
+-r-------- 1 ahsu013 csmajs   856 Nov  9 17:44 9fe8a6eec6426371d6cdf619b52d5f69df64e4
+-r-------- 1 ahsu013 csmajs   167 Oct 21 23:56 9483845ad08dec9660672fb3b10d1c06aef6b3
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/76:
+Total: 3
+-r-------- 1 ahsu013 csmajs    94 Oct 21 13:08 eba62e5a01985a879ded1d4384f4fb076fa1c0
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/71:
+Total: 3
+-r-------- 1 ahsu013 csmajs    97 Oct 22 01:36 1fd38cbd9a243854d12127050b23e8aa124d0e
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/69:
+Total: 4
+-r-------- 1 ahsu013 csmajs   130 Nov  9 17:06 8f9a45bbadf3b6321d13806035cf32ca0ee5df
+-r-------- 1 ahsu013 csmajs  1184 Oct 22 00:15 8c02245038ba637e256a158ad0da523265a8c9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/66:
+Total: 3
+-r-------- 1 ahsu013 csmajs   165 Oct 21 13:10 cb2049a39541f71e4a3f36f39f4dbd9f1961a9
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/63:
+Total: 3
+-r-------- 1 ahsu013 csmajs   207 Oct 21 22:55 0c2c6a217c65cbb7cfb8909587171c12169b15
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/56:
+Total: 3
+-r-------- 1 ahsu013 csmajs  1898 Oct 22 00:35 5369a191b476f7433b3ace9fced5d18da13fd8
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/53:
+Total: 3
+-r-------- 1 ahsu013 csmajs   204 Oct 21 23:59 c22647f4f37891ba22cf0745ba1f8ec8295341
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/52:
+Total: 3
+-r-------- 1 ahsu013 csmajs   192 Nov 10 12:34 7ef318ed004a82d330679af6909382f1b74940
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/4f:
+Total: 3
+-r-------- 1 ahsu013 csmajs   158 Nov 10 12:34 04c8e1346ecd47f461e0da93206305ee9e7e1f
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/48:
+Total: 3
+-r-------- 1 ahsu013 csmajs   172 Nov 10 12:34 c18bac114e8ed95b0ee6a49ec68a851ab02f6d
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/45:
+Total: 3
+-r-------- 1 ahsu013 csmajs   177 Oct 22 00:38 14b402fbda56efbac2a9c247e6ee2fb2ce6828
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/41:
+Total: 3
+-r-------- 1 ahsu013 csmajs    51 Oct 22 00:16 246fb2bbb8c5c2b7225f6e2d11923792aa3f49
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/3f:
+Total: 3
+-r-------- 1 ahsu013 csmajs  1192 Oct 21 22:54 5ae3b219c257548f89e8a551f6943add6b4803
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/3c:
+Total: 3
+-r-------- 1 ahsu013 csmajs   166 Oct 22 01:32 05c62a393fda8a9e86cfe075c68ab7bda44f95
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/2b:
+Total: 3
+-r-------- 1 ahsu013 csmajs   118 Oct 21 13:10 b8a18fb43bfdab6c168eb94affca9e74c5c250
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/29:
+Total: 3
+-r-------- 1 ahsu013 csmajs    56 Oct 22 00:56 d4fa0b88c5e4b1b370faffcdbc1280f5fa8bca
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/26:
+Total: 4
+-r-------- 1 ahsu013 csmajs    56 Oct 21 22:55 b801ec092ddebefd0ab8f2795ade9908f921e7
+-r-------- 1 ahsu013 csmajs   188 Oct 22 01:52 a969d6b76b16b514b585e1ac5ad04efa7a5ae6
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/23:
+Total: 4
+-r-------- 1 ahsu013 csmajs    90 Oct 21 23:56 36f285575a07d3b87c1c32d448a75cbe89e806
+-r-------- 1 ahsu013 csmajs   205 Oct 21 23:56 0d9f6a921f06d6f2186111122929c46b81c133
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/21:
+Total: 3
+-r-------- 1 ahsu013 csmajs   157 Oct 22 01:09 a2e6a1b58271f1564d494c5d2eaa7fbd65c345
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/20:
+Total: 3
+-r-------- 1 ahsu013 csmajs   176 Oct 21 22:55 b7f88fe27fef39d39b1a60009ea61a6879b387
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/1e:
+Total: 3
+-r-------- 1 ahsu013 csmajs   174 Nov 10 12:34 71ff071597731d40999be4f04250dde2480573
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/1d:
+Total: 3
+-r-------- 1 ahsu013 csmajs   241 Nov 10 12:34 b8dfcafbf91cf8ef45fd292994fe6843faa7a4
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/1c:
+Total: 3
+-r-------- 1 ahsu013 csmajs   177 Oct 22 01:36 b8f2653811b36b3af91b5755707f3f58acc75e
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/17:
+Total: 3
+-r-------- 1 ahsu013 csmajs   742 Nov 10 12:34 0f6a0631ef38c4db0e22a6d5bc636ef2795ea7
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/12:
+Total: 3
+-r-------- 1 ahsu013 csmajs   812 Oct 21 16:10 f608717bf7666827841d715ee324943ee1360f
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/0f:
+Total: 3
+-r-------- 1 ahsu013 csmajs   143 Oct 22 00:56 126d0df0a68a0567614bd42847192bee0b9f28
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/0a:
+Total: 3
+-r-------- 1 ahsu013 csmajs   143 Oct 22 01:44 ea2ddb8e4ac408c486647e3f7d57ead2ee10b5
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/01:
+Total: 3
+-r-------- 1 ahsu013 csmajs   205 Oct 22 01:07 c478f7ed47a7905038e2999e9bae5d0c60278b
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/objects/00:
+Total: 3
+-r-------- 1 ahsu013 csmajs    84 Nov  9 17:07 2dd79f3a556cb81b0126bc08156bb2bb3910aa
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/logs:
+Total: 4
+drwx------ 4 ahsu013 csmajs  4096 Oct 22 01:40 refs
+-rw------- 1 ahsu013 csmajs  8127 Nov 11 12:55 HEAD
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/logs/refs:
+Total: 4
+drwx------ 3 ahsu013 csmajs  4096 Oct 21 12:34 remotes
+drwx------ 2 ahsu013 csmajs  4096 Oct 30 00:10 heads
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/logs/refs/remotes:
+Total: 3
+drwx------ 2 ahsu013 csmajs  4096 Oct 22 01:12 origin
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+./.git/logs/refs/remotes/origin:
+Total: 4
+-rw------- 1 ahsu013 csmajs   288 Oct 22 01:38 newbranch
+-rw------- 1 ahsu013 csmajs   589 Nov 10 12:34 master
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./.git/logs/refs/heads:
+Total: 5
+-rw------- 1 ahsu013 csmajs   522 Oct 22 01:52 master
+-rw------- 1 ahsu013 csmajs   335 Nov  9 17:07 ls
+-rw------- 1 ahsu013 csmajs   807 Oct 22 01:48 exec
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+
+./.git/info:
+Total: 3
+-rw------- 1 ahsu013 csmajs   240 Oct 21 12:26 exclude
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/hooks:
+Total: 11
+-rwx------ 1 ahsu013 csmajs  3611 Oct 21 12:26 update.sample
+-rwx------ 1 ahsu013 csmajs  1239 Oct 21 12:26 prepare-commit-msg.sample
+-rwx------ 1 ahsu013 csmajs  4951 Oct 21 12:26 pre-rebase.sample
+-rwx------ 1 ahsu013 csmajs  1348 Oct 21 12:26 pre-push.sample
+-rwx------ 1 ahsu013 csmajs  1635 Oct 21 12:26 pre-commit.sample
+-rwx------ 1 ahsu013 csmajs   398 Oct 21 12:26 pre-applypatch.sample
+-rwx------ 1 ahsu013 csmajs   189 Oct 21 12:26 post-update.sample
+-rwx------ 1 ahsu013 csmajs   896 Oct 21 12:26 commit-msg.sample
+-rwx------ 1 ahsu013 csmajs   452 Oct 21 12:26 applypatch-msg.sample
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+./.git/branches:
+Total: 2
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+
+./bin:
+Total: 5
+-rwx------ 1 ahsu013 csmajs 26817 Nov 11 13:21 rshell
+-rwx------ 1 ahsu013 csmajs 73070 Nov 11 13:21 ls2
+-rwx------ 1 ahsu013 csmajs 70256 Nov 11 13:40 ls
+drwx------ 67 ahsu013 csmajs 20480 Nov 11 13:39 ..
+drwx------ 6 ahsu013 csmajs  4096 Nov 11 13:37 .
+
+
+
+~/hw100
+ahsu013@hammer $ bin/ls -at
+No matching flag
+~/hw100
+ahsu013@hammer $ exit
+exit
+
+Script done on Tue 11 Nov 2014 01:42:51 PM PST

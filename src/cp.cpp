@@ -128,9 +128,9 @@ void method3(char* input, char* output)
 }
 int main(int argc, char**  argv)
 {
-	if (strcmp(argv[3], "-o")==0 && argc ==4)
+	if (argc <4)
 		method3(argv[1],argv[2]); 
-	else 
+	else if( argv[4][2] == 'o') 
 	{
 		// set up the Timer
 		Timer t1;
@@ -169,8 +169,6 @@ int main(int argc, char**  argv)
 		cout << "Wallclock: " << eTime1 << endl;
 		cout << "User time: " << eTime2 << endl;
 		cout << "Sys. time: " << eTime3 << endl;
-
-
 	}
 
 	return 0;

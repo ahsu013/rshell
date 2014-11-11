@@ -172,7 +172,6 @@ if (errno != 0)
 	else 
 	{
 		cout << "Total: " << filenames.size() << endl ; 
-		cout << "statbuff :" << statbuff.size() << endl; 
 		int buffcount = 0; 
 		while(i!=size)
 		{
@@ -245,7 +244,7 @@ if (errno != 0)
 			cupath+= '/'; 
 			cupath+=foldernames.at(i); 
 			dothething(flags,const_cast<char*>(cupath.c_str()));  
-
+			cout << endl; 
 			foldernames.erase(foldernames.begin()+i);
 			i--; 
 		}

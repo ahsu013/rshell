@@ -33,9 +33,8 @@ bool letsgedit(bool simi, bool aand, bool oor, int status)
 	}
 	return true; 
 }
-int main()
+int prompt(vector<string> *cmd)
 {
-while(1) {
 	bool firsterror  = false; 
 	cout << getlogin() << "$ "; 
 	string b ; 
@@ -45,72 +44,82 @@ while(1) {
 	//	break;
 	char * cstring = new char[b.size()+1];
 	strcpy(cstring,b.c_str());  	
-	bool simi = false;
-	bool aand = false; 
-	bool oor = false; 
-
+	int flags = 0 ; 
 	if (b.find(";")!= string::npos)
-		simi = true;
+		flags = flags | 1; 
 	if (b.find("&&")!= string::npos)
-		aand = true; 
+		flags = flags | 2; 
 	if (b.find("||")!= string::npos)
-		oor = true; 
-	vector <string> cmd; 
+		flags = flags | 4; 
 	if (b.find(";")!=string::npos)
 	{
-		simi = true; 
+		flags = flags | 1; 
 		char *token = strtok(cstring, ";");
 		if (token==NULL)
 			firsterror = true; 
 		else if (strcmp(token, "exit") == 0)
-			break; 	
+			exit(1); 	
 		while (token!=NULL)
 		{
-			cmd.push_back(token);
+			cmd->push_back(token);
 			token = strtok (NULL, ";"); 
 		}
 	}
 	else if (b.find("&&")!= string::npos)
 	{	
-		aand = true; 
+		flags = flags | 2; 
 		char *token = strtok(cstring, "&&");
 		if (token == NULL)
 			firsterror = true; 
 		else if (strcmp(token, "exit") == 0)
-                        break;
+                        exit(1);
 		while (token!=NULL)
 		{
-			cmd.push_back(token);
+			cmd->push_back(token);
 			token = strtok (NULL, "&&"); 
 		}
 	}
 	else if (b.find("||")!= string::npos)
 	{
-		oor = true; 
+		flags = flags | 4; 
 		char *token = strtok(cstring, "||");
 		if (token == NULL)
 			firsterror  = true; 
 		else if (strcmp(token, "exit") == 0)
-                        break;
+                        exit(1);
 		while (token!=NULL)
 		{
-			cmd.push_back(token);
+			cmd->push_back(token);
 			token = strtok (NULL, "||"); 
 		}
 	}
 	else
 	{
 		if (strcmp(b.c_str(), "exit") == 0)
-                        break;
-		cmd.push_back(b);
+                        exit(1);
+		cmd->push_back(b);
 	}
 	if (firsterror)
 	{	
+		flags |= 8; 
 		cout << "syntax Error" << endl; 
 	}
-	for (unsigned int i = 0 ; i < cmd.size() ; i++) // for each command
+	return flags; 
+}
+int run_cmd(vector <string> *cmd, int flags)
+{
+	bool simi = 0 ;
+	bool oor = 0 ; 
+	bool aand = 0 ; 
+	if( ( flags & 1) == 1)
+		simi = 1; 
+	if ((flags & 2) == 1)
+		aand = 1; 
+	if ((flags | 4) == 1)
+		oor = 1; 
+	for (unsigned int i = 0 ; i < cmd->size() ; i++) // for each command
 	{
-		if (firsterror)
+		if ((flags | 8) == 1)
 		{
 			cout << "syntax Error" << endl;
 			break;
@@ -122,10 +131,10 @@ while(1) {
 			break; 
 		}
 		vector< string> subcmd; 
-		unsigned int cmdsize = cmd.at(i).size()+1;
+		unsigned int cmdsize = cmd->at(i).size()+1;
 
 		char *ccstring = new char[cmdsize]; 
-		strcpy(ccstring, cmd.at(i).c_str()); 
+		strcpy(ccstring, cmd->at(i).c_str()); 
 
 
 		char *token = strtok(ccstring, " ");
@@ -146,7 +155,7 @@ while(1) {
 		int pid = fork();
 		if (pid == 0)
 		{
-			if (cmd.at(i).find_first_not_of(" ") == string::npos && cmd.at(i).size() >=1)
+			if (cmd->at(i).find_first_not_of(" ") == string::npos && cmd->at(i).size() >=1)
 			{	
 				cout << "Syntax Error "<< endl; 
 				exit(1); 
@@ -165,8 +174,17 @@ while(1) {
 		if (!letsgedit(simi, aand, oor, success))
 			break;
 	}
-	}
+	
 	return 0; 
 
 }
-
+int main()
+{
+	while (1) {
+	vector< string> *cmd= new vector<string> ; 
+	int flags = prompt(cmd); 
+	run_cmd(cmd, flags);
+	delete cmd;
+	} 
+	return 0;
+}

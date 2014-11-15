@@ -1,4 +1,6 @@
 #include <cstddef>
+#include <fcntl.h>
+
 #include <pwd.h>
 #include <cstdlib>
 #include <string>
@@ -14,9 +16,16 @@
 using namespace std; 
 //takes in a string a that contains input or output redirction.
 //takes in the mode/flag that indicated wwhat input or output redirction
-void inputoutput (string a , int mode)
+string inputoutput (string a , int mode,int *flag)
 {
+	string bad;
+	bad = "hello " ;   
 	cout << "Mode:"<<  mode << endl ;
+	if (mode == 0)
+		{
+			*flag = 1;
+			return bad;
+		}
 	if((mode&1)==1)
 		// only input
 		{
@@ -24,8 +33,9 @@ void inputoutput (string a , int mode)
 		b = a.substr(a.find_last_of('<'));
 		if (b.find_first_not_of("< ") == string::npos)
 		{
+			*flag = 1 ; 
 			cout << "missing file name"<< endl; 
-			return;
+			return bad;
 		}
 		b =b.substr(b.find_first_not_of("< "));
 		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
@@ -33,6 +43,15 @@ void inputoutput (string a , int mode)
 		cout << "input:";
 		cout << b;  
 		cout<< '|' << endl ;
+		int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
+		if (fdi<0) {
+			perror("Read Error"); 
+			*flag = 1; 
+			return bad; 
+		}
+		close(0);
+		dup(fdi);
+
 		}
 	else if((mode&2)>0)
 		{
@@ -40,8 +59,9 @@ void inputoutput (string a , int mode)
 		b = a.substr(a.find_last_of('<'));
 		if (b.find_first_not_of("< ") == string::npos)
 		{
+			*flag = 1; 
 			cout << "missing file name"<< endl; 
-			return;
+			return bad;
 		}
 		b =b.substr(b.find_first_not_of("< "));
 		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
@@ -49,6 +69,16 @@ void inputoutput (string a , int mode)
 		cout << "input:";
 		cout << b;  
 		cout<< '|' << endl ;
+		int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
+		if (fdi<0) {
+			perror("Read Error"); 
+			*flag = 1; 
+			return bad; 
+		}
+		close(0);
+		dup(fdi);
+
+
 		}
 		//extra credit input
 	if((mode&4) >0)
@@ -57,8 +87,9 @@ void inputoutput (string a , int mode)
 		b = a.substr(a.find_last_of('>'));
 		if (b.find_first_not_of("> ") == string::npos)
 		{
+			*flag = 1; 
 			cout << "missing file name"<< endl; 
-			return;
+			return bad;
 		}
 		b =b.substr(b.find_first_not_of("> "));
 		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
@@ -66,6 +97,16 @@ void inputoutput (string a , int mode)
 		cout << "output:";
 		cout << b;  
 		cout <<'|' <<  endl; 
+		int fdo=open(const_cast <char*>(b.c_str()),O_WRONLY);
+		if (fdo<0) {
+			perror("Read Error"); 
+			*flag = 1; 
+			return bad; 
+		}
+		close(1);
+		dup(fdo);
+
+
 	}
 		//regular ouput redirction
 	
@@ -75,8 +116,9 @@ void inputoutput (string a , int mode)
 		b = a.substr(a.find_last_of('>'));
 		if (b.find_first_not_of("> ") == string::npos)
 		{
+			*flag = 1 ;
 			cout << "missing file name"<< endl; 
-			return;
+			return bad;
 		}
 		b =b.substr(b.find_first_not_of("> "));
 		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
@@ -84,9 +126,31 @@ void inputoutput (string a , int mode)
 		cout << "output:";
 		cout << b;  
 		cout <<'|' <<  endl; 
-
+		int fdo=open(const_cast <char*>(b.c_str()),O_WRONLY);
+		if (fdo<0) {
+			perror("Read Error"); 
+			*flag = 1; 
+			return bad; 
+		}
+		close(1);
+		dup(fdo);
 	}
 		//double output redirction
+	unsigned c = 0;
+	unsigned b= 0 ;
+	c = a.find_first_of('<');
+	b = a.find_first_of('>');
+	
+	if (c == string::npos)
+		return a.substr(0, b-1);
+	if (b == string::npos)
+		return a.substr(0, c-1);
+	if (c>b)
+		return a.substr(0,b-1);
+	if (b>c)
+		return a.substr(0,c-1);
+	*flag = 1; 
+	return bad; 
 	
 }
 
@@ -275,15 +339,23 @@ int run_cmd(vector <string> *cmd, int flags)
 int main()
 {
 	while (1) {
-//	string a ;
-//	 getline(cin,a);
+	cout << "new"<< endl; 
 	vector< string> *cmd= new vector<string> ; 
 	int flags = prompt(cmd); 
 	cout << flags << endl; 
-int mode=  findthesign(cmd->at(0)); 
-	inputoutput(cmd->at(0), mode); 
-//	run_cmd(cmd, flags);
-//	delete cmd;
+	int mode=  findthesign(cmd->at(0)); 
+	int placeholder = 0; 
+	int *flag = &placeholder; 
+	string a = 	inputoutput(cmd->at(0), mode, flag); 
+	if (*flag==1) {
+		cout << "Error" << endl; 
+		continue; 
+	}
+	cout << "Command: " << a << "|" << flag << endl; 
+	cmd->at(0) = a; 
+	cout << "got here!" << endl ;
+	run_cmd(cmd, flags);
+	delete cmd;
 	} 
 	return 0;
 }

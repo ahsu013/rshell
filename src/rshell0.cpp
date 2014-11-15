@@ -12,7 +12,101 @@
 #include <iostream>
 
 using namespace std; 
+//takes in a string a that contains input or output redirction.
+//takes in the mode/flag that indicated wwhat input or output redirction
+void inputoutput (string a , int mode)
+{
+	cout << "Mode:"<<  mode << endl ;
+	if((mode&1)==1)
+		// only input
+		{
+		string b; 
+		b = a.substr(a.find_last_of('<'));
+		if (b.find_first_not_of("< ") == string::npos)
+		{
+			cout << "missing file name"<< endl; 
+			return;
+		}
+		b =b.substr(b.find_first_not_of("< "));
+		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
+			b= b.substr(0 ,b.find_first_of(" >")); 
+		cout << "input:";
+		cout << b;  
+		cout<< '|' << endl ;
+		}
+	else if((mode&2)>0)
+		{
+		string b; 
+		b = a.substr(a.find_last_of('<'));
+		if (b.find_first_not_of("< ") == string::npos)
+		{
+			cout << "missing file name"<< endl; 
+			return;
+		}
+		b =b.substr(b.find_first_not_of("< "));
+		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
+			b= b.substr(0 ,b.find_first_of(" >")); 
+		cout << "input:";
+		cout << b;  
+		cout<< '|' << endl ;
+		}
+		//extra credit input
+	if((mode&4) >0)
+	{
+		string b; 
+		b = a.substr(a.find_last_of('>'));
+		if (b.find_first_not_of("> ") == string::npos)
+		{
+			cout << "missing file name"<< endl; 
+			return;
+		}
+		b =b.substr(b.find_first_not_of("> "));
+		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
+			b= b.substr(0 ,b.find_first_of(" <"));	
+		cout << "output:";
+		cout << b;  
+		cout <<'|' <<  endl; 
+	}
+		//regular ouput redirction
+	
+	else if((mode&8) >0)
+	{
+		string b; 
+		b = a.substr(a.find_last_of('>'));
+		if (b.find_first_not_of("> ") == string::npos)
+		{
+			cout << "missing file name"<< endl; 
+			return;
+		}
+		b =b.substr(b.find_first_not_of("> "));
+		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
+			b= b.substr(0 ,b.find_first_of(" <"));	
+		cout << "output:";
+		cout << b;  
+		cout <<'|' <<  endl; 
 
+	}
+		//double output redirction
+	
+}
+
+// each int return represent a case of which < > >> <<< is found.
+// return 0 if none or mismatching
+int findthesign ( string a)
+{
+	int yoloflags =0 ; 
+	if (a.find('<') == string::npos || a.find('>') == string::npos)
+		yoloflags  = 0 ;
+	if( a.find('<') != string::npos && (a.find_last_of('<') == a.find_first_of('<')))
+		yoloflags  |= 1; 
+	else if (a.at(a.find_first_of('<')+1) == '<' && (a.find_last_of('<') == a.find_first_of('<')+2))
+		yoloflags  |= 2; 
+	if (a.find('>') != string::npos && (a.find_last_of('>') == a.find_first_of('>')))
+		yoloflags |= 4; 
+	else if (a.at(a.find_first_of('>')+1) == '>' && (a.find_last_of('>') == a.find_first_of('>')+1))	
+		yoloflags |=8; 
+	return yoloflags; 
+}
 bool letsgedit(bool simi, bool aand, bool oor, int status)
 {
 	if (simi)
@@ -181,10 +275,15 @@ int run_cmd(vector <string> *cmd, int flags)
 int main()
 {
 	while (1) {
+//	string a ;
+//	 getline(cin,a);
 	vector< string> *cmd= new vector<string> ; 
 	int flags = prompt(cmd); 
-	run_cmd(cmd, flags);
-	delete cmd;
+	cout << flags << endl; 
+int mode=  findthesign(cmd->at(0)); 
+	inputoutput(cmd->at(0), mode); 
+//	run_cmd(cmd, flags);
+//	delete cmd;
 	} 
 	return 0;
 }

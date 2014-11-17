@@ -16,11 +16,11 @@
 using namespace std; 
 //takes in a string a that contains input or output redirction.
 //takes in the mode/flag that indicated wwhat input or output redirction
-string inputoutput (string a , int mode,int *flag)
+	
+string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *flag)
 {
 	string bad;
 	bad = "hello " ;   
-	cout << "Mode:"<<  mode << endl ;
 	if (mode == 0)
 		{
 			*flag = 1;
@@ -40,17 +40,16 @@ string inputoutput (string a , int mode,int *flag)
 		b =b.substr(b.find_first_not_of("< "));
 		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
 			b= b.substr(0 ,b.find_first_of(" >")); 
-		cout << "input:";
-		cout << b;  
-		cout<< '|' << endl ;
-		int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
-		if (fdi<0) {
-			perror("Read Error"); 
-			*flag = 1; 
-			return bad; 
-		}
-		close(0);
-		dup(fdi);
+		io->at(0) = b; 
+//		io[0] =const_cast<char*>( b.c_str()); 
+		//int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
+		//if (fdi<0) {
+		//	perror("Read Error"); 
+		//	*flag = 1; 
+		//	return bad; 
+		//}
+		//close(0);
+		//dup(fdi);
 
 		}
 	else if((mode&2)>0)
@@ -66,18 +65,17 @@ string inputoutput (string a , int mode,int *flag)
 		b =b.substr(b.find_first_not_of("< "));
 		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
 			b= b.substr(0 ,b.find_first_of(" >")); 
-		cout << "input:";
-		cout << b;  
-		cout<< '|' << endl ;
-		int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
-		if (fdi<0) {
-			perror("Read Error"); 
-			*flag = 1; 
-			return bad; 
-		}
-		close(0);
-		dup(fdi);
-
+		io->at(0) = b; 
+//		io[0] =const_cast<char*>( b.c_str()); 
+//		int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
+//		if (fdi<0) {
+//			perror("Read Error"); 
+//			*flag = 1; 
+//			return bad; 
+//		}
+//		close(0);
+//		dup(fdi);
+//
 
 		}
 		//extra credit input
@@ -94,17 +92,17 @@ string inputoutput (string a , int mode,int *flag)
 		b =b.substr(b.find_first_not_of("> "));
 		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
 			b= b.substr(0 ,b.find_first_of(" <"));	
-		cout << "output:";
-		cout << b;  
-		cout <<'|' <<  endl; 
-		int fdo=open(const_cast <char*>(b.c_str()),O_WRONLY);
-		if (fdo<0) {
-			perror("Read Error"); 
-			*flag = 1; 
-			return bad; 
-		}
-		close(1);
-		dup(fdo);
+		io->at(1) = b; 
+		*tt = (O_WRONLY|O_CREAT|O_TRUNC); //S_IRUSR |S_IWUSR);
+//		io[1] = const_cast<char*> (b.c_str()); 
+//		int fdo=open(const_cast <char*>(b.c_str()),O_WRONLY|O_CREAT|O_TRUNC, permission);
+//		if (fdo<0) {
+//			perror("Read Error"); 
+//			*flag = 1; 
+//			return bad; 
+//		}
+//		close(1);
+//		dup(fdo);
 
 
 	}
@@ -123,17 +121,18 @@ string inputoutput (string a , int mode,int *flag)
 		b =b.substr(b.find_first_not_of("> "));
 		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
 			b= b.substr(0 ,b.find_first_of(" <"));	
-		cout << "output:";
-		cout << b;  
-		cout <<'|' <<  endl; 
-		int fdo=open(const_cast <char*>(b.c_str()),O_WRONLY);
-		if (fdo<0) {
-			perror("Read Error"); 
-			*flag = 1; 
-			return bad; 
-		}
-		close(1);
-		dup(fdo);
+		io->at(1) = b; 
+		*tt = (O_WRONLY|O_CREAT |O_APPEND); // S_IRUSR |S_IWUSR);
+//		io[1] = const_cast<char*> (b.c_str()); 
+
+//		int fdo=open(const_cast <char*>(b.c_str()),O_WRONLY|O_CREAT |O_APPEND, permission);
+//		if (fdo<0) {
+//			perror("Read Error"); 
+//			*flag = 1; 
+//			return bad; 
+//		}
+//		close(1);
+//		dup(fdo);
 	}
 		//double output redirction
 	unsigned c = 0;
@@ -264,7 +263,24 @@ int prompt(vector<string> *cmd)
 	}
 	return flags; 
 }
-int run_cmd(vector <string> *cmd, int flags)
+int cpipe(string a)
+{
+	int count = 0 ;
+	while (1)
+	{
+		if (a.find('|') != string::npos)
+		{
+			count ++;	
+			if(a.at(a.find('|')) == a.at(a.find_last_not_of(' '))) 
+				return -1; 
+			a= a.substr(a.find('|')+1);
+		}
+		else
+			break; 
+	}
+	return count; 
+}
+int run_cmd(int mode, vector <string> *cmd, int flags)
 {
 	bool simi = 0 ;
 	bool oor = 0 ; 
@@ -277,6 +293,72 @@ int run_cmd(vector <string> *cmd, int flags)
 		oor = 1; 
 	for (unsigned int i = 0 ; i < cmd->size() ; i++) // for each command
 	{
+		vector <string > pipes ;  
+		int pipecount = cpipe(cmd->at(i)); 
+		if (pipecount < 0)
+		{
+			cout << "error" << endl;
+			break; 
+		}
+		string backup = cmd->at(i); 
+		int curcount = 0; 
+		string backup2 = cmd->at(i); ; 
+		vector<string> pipecmd; 
+		if (pipecount> 0 )
+		{
+			backup2 = cmd->at(i).substr(cmd->at(i).find_last_of('|')+1);
+			string tempo = cmd->at(i); 
+			for (int j = 0 ; j <=pipecount ; j++)
+			{
+				pipecmd.push_back(tempo.substr(0, tempo.find('|')-1)); 		
+				tempo = tempo.substr(tempo.find('|')+1); 
+			}
+		}
+		int   fd_in = 0;
+//		int copy_stdi = dup(0); 
+//		int copy_stdo = dup(1); 
+//		cout << "copy: " << copy_stdo << endl; 
+		int pd[2]; 
+for (int z = 0; z != pipecount+1; z++)
+{
+	if (pipecount > 0) 
+	{
+			if (pipe(pd) != 0) 	
+			{
+				perror ("pipe");
+				break; 
+			}
+		cmd->at(i) = pipecmd.at(z); 
+	}
+
+	int pid = fork();
+//	int success;
+	
+	if (pid > 0)
+	{
+		wait(0); 
+//		waitpid(pid, &success, 0);
+		if (pipecount>=1)
+		{
+			close(pd[1]); 
+			fd_in = pd[0]; 
+			curcount++; 
+		}
+		//if (!letsgedit(simi, aand, oor, success))
+		//	break;
+		
+	}
+	if (pid == 0)
+	{
+		if (pipecount > 0 )
+		{
+			dup2(fd_in, 0); 	
+			if ( z != pipecount)
+			{
+				dup2(pd[1],1);
+			}
+			close(pd[0]);
+		}
 		if ((flags | 8) == 1)
 		{
 			cout << "syntax Error" << endl;
@@ -287,6 +369,50 @@ int run_cmd(vector <string> *cmd, int flags)
 		{
 			cout << "Syntax Error" << endl; 
 			break; 
+		}
+		
+		if (mode!=0) {
+			int placeholder = 0; 
+
+			mode_t permission  ; 
+			mode_t permis = S_IRUSR |S_IWUSR;
+			vector <string> io; 
+			io.resize(3); 
+			int *flag = &placeholder; 
+			string a = 	inputoutput(&permission, &io, cmd->at(i), mode, flag);
+			cout << "a:" << a << endl; 
+
+		if (!io.at(0).empty() )
+		{
+			int fdi=open(const_cast <char*>(io.at(0).c_str()),O_RDONLY);	
+			if (fdi<0) {
+				perror("Read Error"); 
+				*flag = 1; 
+				return 1; 
+			}
+			close(0);
+			dup(fdi);
+
+		}
+		if (!io.at(1).empty() )
+		{
+			cout<< io.at(1) << endl; 	
+			int fdo=open(const_cast <char*>(io.at(1).c_str()),permission, permis);	
+			if (fdo<0) {
+				perror("writeError"); 
+				*flag = 1; 
+				return 1; 
+			}
+			close(1);
+			dup(fdo);
+
+		}
+
+			if (*flag==1) {
+				cout << "Error" << endl; 
+				continue; 
+			}
+			cmd->at(i) = a;
 		}
 		vector< string> subcmd; 
 		unsigned int cmdsize = cmd->at(i).size()+1;
@@ -310,9 +436,7 @@ int run_cmd(vector <string> *cmd, int flags)
 			strcpy (argv[j],subcmd.at(j).c_str());  
 		}
 		argv[subcmd.size()] = 0; 
-		int pid = fork();
-		if (pid == 0)
-		{
+
 			if (cmd->at(i).find_first_not_of(" ") == string::npos && cmd->at(i).size() >=1)
 			{	
 				cout << "Syntax Error "<< endl; 
@@ -322,16 +446,14 @@ int run_cmd(vector <string> *cmd, int flags)
 			perror("execvp");
 	
 		exit(1);
-		}
-		int success;
-		if (pid == -1)
-		{
-			perror("fork); exit(1)"); 
-		}
-		waitpid(pid, &success, 0);
-		if (!letsgedit(simi, aand, oor, success))
-			break;
 	}
+	if (pid == -1)
+	{
+		perror("fork); exit(1)"); 
+	}
+	
+}
+	}// for each cmd
 	
 	return 0; 
 
@@ -339,22 +461,10 @@ int run_cmd(vector <string> *cmd, int flags)
 int main()
 {
 	while (1) {
-	cout << "new"<< endl; 
 	vector< string> *cmd= new vector<string> ; 
 	int flags = prompt(cmd); 
-	cout << flags << endl; 
 	int mode=  findthesign(cmd->at(0)); 
-	int placeholder = 0; 
-	int *flag = &placeholder; 
-	string a = 	inputoutput(cmd->at(0), mode, flag); 
-	if (*flag==1) {
-		cout << "Error" << endl; 
-		continue; 
-	}
-	cout << "Command: " << a << "|" << flag << endl; 
-	cmd->at(0) = a; 
-	cout << "got here!" << endl ;
-	run_cmd(cmd, flags);
+	run_cmd(mode, cmd, flags);
 	delete cmd;
 	} 
 	return 0;

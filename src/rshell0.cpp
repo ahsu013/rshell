@@ -19,8 +19,8 @@ using namespace std;
 	
 string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *flag)
 {
+
 	string bad;
-	bad = "hello " ;   
 	if (mode == 0)
 		{
 			*flag = 1;
@@ -193,7 +193,11 @@ bool letsgedit(bool simi, bool aand, bool oor, int status)
 int prompt(vector<string> *cmd)
 {
 	bool firsterror  = false; 
-	cout << getlogin() << "$ "; 
+	char* loginname =getlogin() ;
+	if (loginname== NULL)
+		perror("getlogin error");
+	cout <<  loginname<< "$ "; 
+
 	string b ; 
 	getline(cin, b); 
 	b = b.substr(0, b.find("#")); 
@@ -321,9 +325,11 @@ int run_cmd(int mode, vector <string> *cmd, int flags)
 		int pd[2]; 
 for (int z = 0; z != pipecount+1; z++)
 {
+
 	if (pipecount > 0) 
 	{
-			if (pipe(pd) != 0) 	
+			int err= pipe(pd); 
+			if (err<0) 	
 			{
 				perror ("pipe");
 				break; 
@@ -334,13 +340,19 @@ for (int z = 0; z != pipecount+1; z++)
 	int pid = fork();
 //	int success;
 	
+mode = findthesign(cmd->at(0));
 	if (pid > 0)
 	{
-		wait(0); 
+
+		int err = wait(0); 
+		if (err<0)
+			perror("wait"); 
 //		waitpid(pid, &success, 0);
 		if (pipecount>=1)
 		{
-			close(pd[1]); 
+			int err2 = close(pd[1]); 
+			if (err2< 0)
+				perror("close");
 			fd_in = pd[0]; 
 			curcount++; 
 		}
@@ -352,12 +364,18 @@ for (int z = 0; z != pipecount+1; z++)
 	{
 		if (pipecount > 0 )
 		{
-			dup2(fd_in, 0); 	
+			int err2 = dup2(fd_in, 0); 	
+			if (err2<0)
+				perror("dup2"); 
 			if ( z != pipecount)
 			{
-				dup2(pd[1],1);
+				int err3 = dup2(pd[1],1);
+				if (err3< 0 )
+					perror("dup2"); 
 			}
-			close(pd[0]);
+			int err3=close(pd[0]);
+			if (err3< 0)
+				perror("close");
 		}
 		if ((flags | 8) == 1)
 		{
@@ -370,7 +388,8 @@ for (int z = 0; z != pipecount+1; z++)
 			cout << "Syntax Error" << endl; 
 			break; 
 		}
-		
+		if (cmd->at(i).find_first_of("<>")==string::npos)
+			mode = 0; 
 		if (mode!=0) {
 			int placeholder = 0; 
 
@@ -380,7 +399,6 @@ for (int z = 0; z != pipecount+1; z++)
 			io.resize(3); 
 			int *flag = &placeholder; 
 			string a = 	inputoutput(&permission, &io, cmd->at(i), mode, flag);
-			cout << "a:" << a << endl; 
 
 		if (!io.at(0).empty() )
 		{
@@ -390,21 +408,28 @@ for (int z = 0; z != pipecount+1; z++)
 				*flag = 1; 
 				return 1; 
 			}
-			close(0);
-			dup(fdi);
+			int erro4 = close(0);
+			int erro5 = dup(fdi);
+			if (erro4<0)
+				perror ("close");
+			if(erro5< 0 )
+				perror("dup"); 
 
 		}
 		if (!io.at(1).empty() )
 		{
-			cout<< io.at(1) << endl; 	
 			int fdo=open(const_cast <char*>(io.at(1).c_str()),permission, permis);	
 			if (fdo<0) {
 				perror("writeError"); 
 				*flag = 1; 
 				return 1; 
 			}
-			close(1);
-			dup(fdo);
+			int erro6 = close(1);
+			int erro7 = dup(fdo);
+			if (erro6 < 0 )
+				perror("close"); 
+			if (erro7 < 0 )
+				perror("dup"); 
 
 		}
 
@@ -463,7 +488,7 @@ int main()
 	while (1) {
 	vector< string> *cmd= new vector<string> ; 
 	int flags = prompt(cmd); 
-	int mode=  findthesign(cmd->at(0)); 
+	int mode= 0; 
 	run_cmd(mode, cmd, flags);
 	delete cmd;
 	} 

@@ -26,10 +26,12 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 			*flag = 1;
 			return bad;
 		}
-	if((mode&1)==1)
+	if((mode&1)>=1)
 		// only input
 		{
 		string b; 
+		int d = a.find_last_of('<'); 
+		int e =0 ;
 		b = a.substr(a.find_last_of('<'));
 		if (b.find_first_not_of("< ") == string::npos)
 		{
@@ -37,10 +39,18 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 			cout << "missing file name"<< endl; 
 			return bad;
 		}
+		b.find_first_not_of("< "); 
 		b =b.substr(b.find_first_not_of("< "));
 		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
+{
 			b= b.substr(0 ,b.find_first_of(" >")); 
-		io->at(0) = b; 
+			e = a.find(b)- d;  
+}
+		if (e!=0)
+		a.erase(d,b.size()+e); 
+		else
+		a.erase(d); 
+		io->at(0) = b; 	
 //		io[0] =const_cast<char*>( b.c_str()); 
 		//int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
 		//if (fdi<0) {
@@ -56,6 +66,8 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 		{
 		string b; 
 		b = a.substr(a.find_last_of('<'));
+		int d = a.find_first_of('<'); 
+		int e =0; 
 		if (b.find_first_not_of("< ") == string::npos)
 		{
 			*flag = 1; 
@@ -63,9 +75,21 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 			return bad;
 		}
 		b =b.substr(b.find_first_not_of("< "));
+		if (b.find('"') == string::npos)
 		if ((b.find(">") != string::npos) || b.find(' ') != string::npos)
+{
 			b= b.substr(0 ,b.find_first_of(" >")); 
-		io->at(0) = b; 
+			e = a.find(b) - d; 
+}
+		if (b.find('"') !=string::npos)
+		b= b.substr(1); 
+		b = b.substr(0, b.find('"'));
+		e= a.find(b) -d; 
+		if(e!=0)
+		a.erase(d,b.size()+e+1); 
+		else
+			a.erase(d+e+1); 
+		io->at(2) = b; 	
 //		io[0] =const_cast<char*>( b.c_str()); 
 //		int fdi=open(const_cast <char*>(b.c_str()),O_RDONLY);
 //		if (fdi<0) {
@@ -81,8 +105,16 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 		//extra credit input
 	if((mode&4) >0)
 	{
+		io->at(3) = "0"; 
+		if (isdigit(a.at(a.find_first_of('>')-1)))
+		{
+			io->at(3) = a.at(a.find_first_of('>')-1);
+			a.at(a.find_first_of('>')-1) = ' ' ; 
+		}
 		string b; 
 		b = a.substr(a.find_last_of('>'));
+	int d = a.find_last_of('>'); 
+	int e = 0; 
 		if (b.find_first_not_of("> ") == string::npos)
 		{
 			*flag = 1; 
@@ -91,7 +123,14 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 		}
 		b =b.substr(b.find_first_not_of("> "));
 		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
+{
 			b= b.substr(0 ,b.find_first_of(" <"));	
+			e= a.find(b)- d; 
+}
+		if (e!=0) 
+		a.erase(d,b.size()+e); 
+		else 
+		a.erase(d); 
 		io->at(1) = b; 
 		*tt = (O_WRONLY|O_CREAT|O_TRUNC); //S_IRUSR |S_IWUSR);
 //		io[1] = const_cast<char*> (b.c_str()); 
@@ -110,8 +149,16 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 	
 	else if((mode&8) >0)
 	{
+		io->at(3) = "0"; 
+		if (isdigit(a.at(a.find_first_of('>')-1)))
+		{
+			io->at(3) = a.at(a.find_first_of('>')-1);
+			a.at(a.find_first_of('>')-1) = ' ' ; 
+		}
 		string b; 
 		b = a.substr(a.find_last_of('>'));
+		int d = a.find_last_of('>')-1; 
+		int e =0 ;
 		if (b.find_first_not_of("> ") == string::npos)
 		{
 			*flag = 1 ;
@@ -120,7 +167,15 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 		}
 		b =b.substr(b.find_first_not_of("> "));
 		if(b.find(' ') != string::npos || (b.find('<') != string::npos))
+{
 			b= b.substr(0 ,b.find_first_of(" <"));	
+			e = a.find(b)-d; 
+}
+		if (e!=0) 
+		a.erase(d,b.size()+e); 
+		else 
+		a.erase(d); 
+
 		io->at(1) = b; 
 		*tt = (O_WRONLY|O_CREAT |O_APPEND); // S_IRUSR |S_IWUSR);
 //		io[1] = const_cast<char*> (b.c_str()); 
@@ -135,21 +190,17 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 //		dup(fdo);
 	}
 		//double output redirction
-	unsigned c = 0;
-	unsigned b= 0 ;
-	c = a.find_first_of('<');
-	b = a.find_first_of('>');
-	
-	if (c == string::npos)
-		return a.substr(0, b-1);
-	if (b == string::npos)
-		return a.substr(0, c-1);
-	if (c>b)
-		return a.substr(0,b-1);
-	if (b>c)
-		return a.substr(0,c-1);
-	*flag = 1; 
-	return bad; 
+	return a; 	
+//	if (c == string::npos)
+//		return a.substr(0, b-1);
+//	if (b == string::npos)
+//		return a.substr(0, c-1);
+//	if (c>b)
+//		return a.substr(0,b-1);
+//	if (b>c)
+//		return a.substr(0,c-1);
+//	*flag = 1; 
+//	return bad; 
 	
 }
 
@@ -158,16 +209,20 @@ string inputoutput (mode_t *tt , vector<string> *io, string a , int mode,int *fl
 int findthesign ( string a)
 {
 	int yoloflags =0 ; 
-	if (a.find('<') == string::npos || a.find('>') == string::npos)
-		yoloflags  = 0 ;
+	if (a.find('<') == string::npos &&  a.find('>') == string::npos)
+		return yoloflags; 	
 	if( a.find('<') != string::npos && (a.find_last_of('<') == a.find_first_of('<')))
 		yoloflags  |= 1; 
 	else if (a.at(a.find_first_of('<')+1) == '<' && (a.find_last_of('<') == a.find_first_of('<')+2))
 		yoloflags  |= 2; 
+	else if (a.find('<') !=string::npos) 
+		yoloflags = -1;
 	if (a.find('>') != string::npos && (a.find_last_of('>') == a.find_first_of('>')))
 		yoloflags |= 4; 
 	else if (a.at(a.find_first_of('>')+1) == '>' && (a.find_last_of('>') == a.find_first_of('>')+1))	
-		yoloflags |=8; 
+		yoloflags |=8;
+	else if (a.find('>') != string::npos)
+		yoloflags = -1; 
 	return yoloflags; 
 }
 bool letsgedit(bool simi, bool aand, bool oor, int status)
@@ -265,6 +320,7 @@ int prompt(vector<string> *cmd)
 		flags |= 8; 
 		cout << "syntax Error" << endl; 
 	}
+	delete cstring; 
 	return flags; 
 }
 int cpipe(string a)
@@ -341,6 +397,7 @@ for (int z = 0; z != pipecount+1; z++)
 //	int success;
 	
 mode = findthesign(cmd->at(0));
+
 	if (pid > 0)
 	{
 
@@ -396,12 +453,13 @@ mode = findthesign(cmd->at(0));
 			mode_t permission  ; 
 			mode_t permis = S_IRUSR |S_IWUSR;
 			vector <string> io; 
-			io.resize(3); 
+			io.resize(5); 
 			int *flag = &placeholder; 
 			string a = 	inputoutput(&permission, &io, cmd->at(i), mode, flag);
 
 		if (!io.at(0).empty() )
 		{
+			
 			int fdi=open(const_cast <char*>(io.at(0).c_str()),O_RDONLY);	
 			if (fdi<0) {
 				perror("Read Error"); 
@@ -409,6 +467,7 @@ mode = findthesign(cmd->at(0));
 				return 1; 
 			}
 			int erro4 = close(0);
+				
 			int erro5 = dup(fdi);
 			if (erro4<0)
 				perror ("close");
@@ -424,15 +483,40 @@ mode = findthesign(cmd->at(0));
 				*flag = 1; 
 				return 1; 
 			}
-			int erro6 = close(1);
-			int erro7 = dup(fdo);
+			int erro6; 
+			int erro7; 
+			if (io.at(3)== "0" )
+			{
+				erro6 = close(1);
+				erro7 =dup(fdo); 
+			}
+			else
+			{
+				erro6 = close( atoi(const_cast<char*>(io.at(3).c_str()))); 	
+				erro7 = dup(fdo); 
+			}
 			if (erro6 < 0 )
 				perror("close"); 
 			if (erro7 < 0 )
 				perror("dup"); 
 
 		}
+		if(!io.at(2).empty())
+		{
+			char* yolo = new char(io.at(2).size()); 
+			strcpy(yolo, const_cast<char*>(io.at(2).c_str()));  
+			cout << "need to do " << endl; 
+//			int fpd[2]; 
+//			pipe(fpd); 
+//int zz =	write(fpd[1], yolo ,sizeof(yolo));
+//		if (zz<0)
+//			perror("writejdksl" );
+//			close(0); 
+//			dup(fpd[1]) ; 
+//			close(fpd[1]); 
+//			close(fpd[0]); 
 
+		}
 			if (*flag==1) {
 				cout << "Error" << endl; 
 				continue; 
@@ -488,7 +572,12 @@ int main()
 	while (1) {
 	vector< string> *cmd= new vector<string> ; 
 	int flags = prompt(cmd); 
-	int mode= 0; 
+	int mode= findthesign(cmd->at(0)); 
+	if (mode<0)
+	{
+		cout << "Multiple redirection error" << endl;
+		exit(1); 
+	}
 	run_cmd(mode, cmd, flags);
 	delete cmd;
 	} 

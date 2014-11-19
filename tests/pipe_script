@@ -1,0 +1,188 @@
+Script started on Tue 18 Nov 2014 10:51:47 PM PST
+~
+ahsu013@hammer $ cd hw100/
+~/hw100
+ahsu013@hammer $ make 
+mkdir -p bin
+g++ -Wall -Werror -ansi -pedantic src/rshell0.cpp -o bin/rshell
+g++ -Wall -Werror -ansi -pedantic src/ls.cpp -o bin/ls2
+g++ src/cp.cpp -o bin/cp
+~/hw100
+ahsu013@hammer $ bin/rshell 
+ahsu013$ ls >output
+ahsu013$ cat output
+bin
+error.cpp
+input
+input2
+input3
+LICENSE
+Makefile
+out
+output
+output2
+pipe_script
+README
+src
+tests
+ahsu013$ wc -l <output
+14
+ahsu013$ wc -l <output >output
+ahsu013$ cat output
+0
+ahsu013$ wc -l <Makefile >output
+ahsu013$ cat output
+17
+ahsu013$ ls | grep input
+input
+input2
+input3
+ahsu013$ ls    wc -l <Makefile | grep 1 >output
+ahsu013$ cat output
+17
+ahsu013$ <MA akefile wc >output -l 
+ahsu013$ cat output
+17
+ahsu013$ <M README wc >output -l
+ahsu013$ cat output
+55
+ahsu013$ <READ     cat <README | grep rshell | wc -l >output
+ahsu013$ ca  t output
+7
+ahsu013$ vsy   cat <README | te A   r A_ -z Z a-z | tee output | tr a-z A-Z >output2
+ahsu013$ cat output 
+shel && custom ls command
+
+project source can be downloaded from:
+	https://github.com/ahsu013/rshell.git
+
+author & contributor list:
+	albert hsu
+
+file list:
+	makefile
+	license
+	/src
+		rshell0.cpp
+		ls.cpp
+		cp.cpp
+	/tests
+		exec.script
+
+rshell overview
+	rshell is a simple custom shell. it a more limitated version of bash shell. it execute commands by calling execvp command in /bin.
+
+	knonw bug and/or limitation:
+		echo into file does not work
+		echo with message that has # does not echo anything after #
+		rshell can not handle differient connectors. it will prompt "syntax error if it detects mutliple different connectors
+		connectors at the end of commands will be ignore
+		multiple connectors without commands in between will prompt "syntax error" 
+		rshell currently can not cycle through past commands. 
+		rshell currently can not auto complete with tab key
+
+		special built in "exit" command will exit the custom shell. 
+ 
+cp overview
+
+	cp is a program that moves the content of a file into another. the default method is to use the max size buffer to copy the content. this is the fastest way to do so. if optional flag "-o" is pass in, it will use all three method and display the wallclock/user timer/system time.   
+
+
+ls overview
+	ls is custom command and has the same functionality as bash's ls command with some limitation. the accepted flags are -l -r -a -r. user can combine flags to get the wanted result. the default order is alphabetical order  
+	-a: list all hidden files
+	-r: list files in reverse order
+	-r: recursivly call to display all files within folders. 
+	-l: displays with long formate listing extra information pertaining to the file. 
+		extra infomations are order:
+			total number of files in directory.
+			the type of file.
+			user read/write/execute permission.
+			group read/write/execute permission.	
+			other read/write/execute permission.
+			number of links.
+			user name.
+			group name.
+			file size.	
+			time of last modification. 
+			name of file.
+ahsu013$ cat output2
+SHEL && CUSTOM LS COMMAND
+
+PROJECT SOURCE CAN BE DOWNLOADED FROM:
+	HTTPS://GITHUB.COM/AHSU013/RSHELL.GIT
+
+AUTHOR & CONTRIBUTOR LIST:
+	ALBERT HSU
+
+FILE LIST:
+	MAKEFILE
+	LICENSE
+	/SRC
+		RSHELL0.CPP
+		LS.CPP
+		CP.CPP
+	/TESTS
+		EXEC.SCRIPT
+
+RSHELL OVERVIEW
+	RSHELL IS A SIMPLE CUSTOM SHELL. IT A MORE LIMITATED VERSION OF BASH SHELL. IT EXECUTE COMMANDS BY CALLING EXECVP COMMAND IN /BIN.
+
+	KNONW BUG AND/OR LIMITATION:
+		ECHO INTO FILE DOES NOT WORK
+		ECHO WITH MESSAGE THAT HAS # DOES NOT ECHO ANYTHING AFTER #
+		RSHELL CAN NOT HANDLE DIFFERIENT CONNECTORS. IT WILL PROMPT "SYNTAX ERROR IF IT DETECTS MUTLIPLE DIFFERENT CONNECTORS
+		CONNECTORS AT THE END OF COMMANDS WILL BE IGNORE
+		MULTIPLE CONNECTORS WITHOUT COMMANDS IN BETWEEN WILL PROMPT "SYNTAX ERROR" 
+		RSHELL CURRENTLY CAN NOT CYCLE THROUGH PAST COMMANDS. 
+		RSHELL CURRENTLY CAN NOT AUTO COMPLETE WITH TAB KEY
+
+		SPECIAL BUILT IN "EXIT" COMMAND WILL EXIT THE CUSTOM SHELL. 
+ 
+CP OVERVIEW
+
+	CP IS A PROGRAM THAT MOVES THE CONTENT OF A FILE INTO ANOTHER. THE DEFAULT METHOD IS TO USE THE MAX SIZE BUFFER TO COPY THE CONTENT. THIS IS THE FASTEST WAY TO DO SO. IF OPTIONAL FLAG "-O" IS PASS IN, IT WILL USE ALL THREE METHOD AND DISPLAY THE WALLCLOCK/USER TIMER/SYSTEM TIME.   
+
+
+LS OVERVIEW
+	LS IS CUSTOM COMMAND AND HAS THE SAME FUNCTIONALITY AS BASH'S LS COMMAND WITH SOME LIMITATION. THE ACCEPTED FLAGS ARE -L -R -A -R. USER CAN COMBINE FLAGS TO GET THE WANTED RESULT. THE DEFAULT ORDER IS ALPHABETICAL ORDER  
+	-A: LIST ALL HIDDEN FILES
+	-R: LIST FILES IN REVERSE ORDER
+	-R: RECURSIVLY CALL TO DISPLAY ALL FILES WITHIN FOLDERS. 
+	-L: DISPLAYS WITH LONG FORMATE LISTING EXTRA INFORMATION PERTAINING TO THE FILE. 
+		EXTRA INFOMATIONS ARE ORDER:
+			TOTAL NUMBER OF FILES IN DIRECTORY.
+			THE TYPE OF FILE.
+			USER READ/WRITE/EXECUTE PERMISSION.
+			GROUP READ/WRITE/EXECUTE PERMISSION.	
+			OTHER READ/WRITE/EXECUTE PERMISSION.
+			NUMBER OF LINKS.
+			USER NAME.
+			GROUP NAME.
+			FILE SIZE.	
+			TIME OF LAST MODIFICATION. 
+			NAME OF FILE.
+ahsu013$ wc    ca  wc - <Makefile >>  >output
+ahsu013$ wc <Makefile >>output
+ahsu013$ cat output
+ 17  50 333
+ 17  50 333
+ahsu013$ cat     g++ rshell       b  bin/rshell.cp   	0.cpp 2>output
+ahsu013$ cat output
+g++: bin/rshell0.cpp: No such file or directory
+g++: no input files
+ahsu013$ cat <inpt put   ut <input2
+Multiple redirection error
+~/hw100
+ahsu013@hammer $ l[Kbin/rshell 
+ahsu013$ cat <input >output >outp    input2
+Multiple redirection error
+~/hw100
+ahsu013@hammer $ stop
+stop: missing job name
+Try `stop --help' for more information.
+~/hw100
+ahsu013@hammer $ exit
+exit
+
+Script done on Tue 18 Nov 2014 10:57:31 PM PST

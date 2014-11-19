@@ -53,3 +53,14 @@ ls overview
 			File size.	
 			Time of last modification. 
 			Name of file.
+
+
+Rshell with piping and input/output redirectionoverview:
+	This updated version of rshell has piping and input/output redirection added in. To redirect input use '<' and it will use the filename that comes after '<' as input. For output redirection, filename after '>' or '>' will be use as output file. Using ">>" will apend the output to the existing file. IF the output file does not exists, it will create it with read and write permission. There's an optional flag that comes before '<' or "<<" that will takes in a file descriptor and replaces it with output file. For example grep test.cpp 2> error will output all the error messages into a file name error. 
+
+	Known bug and/or limitation:
+		Has undefine behavior when using the same file as input and output.
+		Cannot handle here-string (<<<) 
+		It's not meant to handle connectors and piping
+		Will exit the program if it detects redirection formating  erors but not opening file error. 
+		

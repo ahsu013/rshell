@@ -567,30 +567,22 @@ mode = findthesign(cmd->at(0));
 				path = path.substr(path.find(":")+1);
 			}
 
-			int pid2; 
 			for(unsigned i = 0 ; i < paths.size(); i++)
 			{
-				pid2 = fork(); 
-				if (pid2 < 0 )
-				{
-					perror("pid2"); 
-					exit(1); 
-				}
+
 				string temp = argv[0]; 
 				paths.at(i) += "/" + temp; 
-				if (pid2 == 0)
-				{	
+
+					if ( access(const_cast<char*> (paths.at(i).c_str()) , X_OK) == 0)
+{
 					execv( const_cast<char*> (paths.at(i).c_str()), argv); 
-					_Exit(0); 
-				}
-				else
-					wait(0);
+perror("execv"); 
+}
 			}
-			if (pid2 !=0)
-			{
-				exit(1);
-			}
-	}
+			cout << "could not find excutable" << endl;
+			exit(1); 
+		}
+
 	if (pid == -1)
 	{
 		perror("fork); exit(1)"); 

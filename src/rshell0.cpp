@@ -489,6 +489,12 @@ mode = findthesign(cmd->at(0));
 			{
 				erro6 = close(1);
 				erro7 =dup(fdo); 
+				if (erro6 < 0 )
+				perror("close"); 
+			if (erro7 < 0 )
+				perror("dup"); 
+
+
 			}
 			else
 			{
@@ -551,10 +557,39 @@ mode = findthesign(cmd->at(0));
 				cout << "Syntax Error "<< endl; 
 				exit(1); 
 			}
-			execvp( argv[0], argv); 
-			perror("execvp");
-	
-		exit(1);
+			string path = getenv("PATH");
+			vector<string>paths;
+			while(1)
+			{
+				if(path.find_first_of(":") == string::npos)
+					break;
+				paths.push_back(path.substr(0,path.find(":")));
+				path = path.substr(path.find(":")+1);
+			}
+
+			int pid2; 
+			for(unsigned i = 0 ; i < paths.size(); i++)
+			{
+				pid2 = fork(); 
+				if (pid2 < 0 )
+				{
+					perror("pid2"); 
+					exit(1); 
+				}
+				string temp = argv[0]; 
+				paths.at(i) += "/" + temp; 
+				if (pid2 == 0)
+				{	
+					execv( const_cast<char*> (paths.at(i).c_str()), argv); 
+					_Exit(0); 
+				}
+				else
+					wait(0);
+			}
+			if (pid2 !=0)
+			{
+				exit(1);
+			}
 	}
 	if (pid == -1)
 	{

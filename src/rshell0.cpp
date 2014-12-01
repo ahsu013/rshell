@@ -14,6 +14,13 @@
 #include <iostream>
 
 using namespace std; 
+
+
+int globalvar = -1; 
+void hd1 (int sig)
+{
+	kill(globalvar, SIGTERM);
+}
 //takes in a string a that contains input or output redirction.
 //takes in the mode/flag that indicated wwhat input or output redirction
 	
@@ -251,7 +258,8 @@ int prompt(vector<string> *cmd)
 	char* loginname =getlogin() ;
 	if (loginname== NULL)
 		perror("getlogin error");
-	cout <<  loginname<< "$ "; 
+	char *cwd = get_current_dir_name(); 
+	cout << cwd << "/" <<   loginname<< "$ "; 
 
 	string b ; 
 	getline(cin, b); 
@@ -394,6 +402,7 @@ for (int z = 0; z != pipecount+1; z++)
 	}
 
 	int pid = fork();
+	globalvar= pid; 
 //	int success;
 	
 mode = findthesign(cmd->at(0));
@@ -574,10 +583,10 @@ mode = findthesign(cmd->at(0));
 				paths.at(i) += "/" + temp; 
 
 					if ( access(const_cast<char*> (paths.at(i).c_str()) , X_OK) == 0)
-{
-					execv( const_cast<char*> (paths.at(i).c_str()), argv); 
-perror("execv"); 
-}
+					{
+						execv( const_cast<char*> (paths.at(i).c_str()), argv); 
+						perror("execv"); 
+					}
 			}
 			cout << "could not find excutable" << endl;
 			exit(1); 
@@ -596,9 +605,12 @@ perror("execv");
 }
 int main()
 {
+	signal(SIGINT, &hd1); 
 	while (1) {
 	vector< string> *cmd= new vector<string> ; 
 	int flags = prompt(cmd); 
+	if (cmd->at(0).empty())
+		continue; 
 	int mode= findthesign(cmd->at(0)); 
 	if (mode<0)
 	{

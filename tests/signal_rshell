@@ -1,0 +1,67 @@
+Script started on Tue 02 Dec 2014 02:01:21 PM PST
+~
+ahsu013@hammer $ cs100
+[0;91m
+===============================================================================
+|                                                                             |
+| You have enabled settings specific for cs100.                               |
+|                                                                             |
+===============================================================================
+[0m
+[s%%%%%%%%%%[u[0;32mahsu013[0;36m@[0;32mcs100[0;36m:[0;32m~[0;95m [0;36m$[0m cd hw100/
+[s%%%%%%%%%%[u[0;32mahsu013[0;36m@[0;32mcs100[0;36m:[0;32m~/hw100[0;95m (signalrshell) [0;36m$[0m make
+mkdir -p bin
+g++ -Wall -Werror -ansi -pedantic src/rshell0.cpp -o bin/rshell
+g++ -Wall -Werror -ansi -pedantic src/ls.cpp -o bin/ls2
+g++ src/cp.cpp -o bin/cp
+[s%%%%%%%%%%[u[0;32mahsu013[0;36m@[0;32mcs100[0;36m:[0;32m~/hw100[0;95m (signalrshell) [0;36m$[0m bin/rshell 
+/home/csmajs/ahsu013/hw100/ahsu013$ cat
+las
+las
+dfsa
+dfsa
+^C/home/csmajs/ahsu013/hw100/ahsu013$ 
+/home/csmajs/ahsu013/hw100/ahsu013$ 
+/home/csmajs/ahsu013/hw100/ahsu013$ ^C^C^C^C
+/home/csmajs/ahsu013/hw100/ahsu013$ cd  
+/home/csmajs/ahsu013/ahsu013$ ls
+\			healthreport		 pluginreg.dat
+193			healthreport.sqlite	 prefs.js
+addons.sqlite		healthreport.sqlite-shm  projects
+a.out			healthreport.sqlite-wal  Public
+assn22.tgz		helloworld.asm		 safebrowsing
+assn2.tgz		hw100			 search.json
+blocklist.xml		indexedDB		 secmod.db
+bookmarkbackups		key3.db			 sessionstore.bak
+Cache			lab04.tgz		 sessionstore.js
+_CACHE_CLEAN_		lab05.o			 signons.sqlite
+cert8.db		lab06			 startupCache
+chromeappsstore.sqlite	lab06.cpp		 Templates
+compatibility.ini	lab06.o			 test
+content-prefs.sqlite	lab3.tgz		 thumbnails
+cookies.sqlite		localstore.rdf		 times.json
+cookies.sqlite-shm	marionette.log		 urlclassifierkey3.txt
+cookies.sqlite-wal	mimeTypes.rdf		 Videos
+Desktop			mozilla-media-cache	 webapps
+Documents		Music			 webappsstore.sqlite
+Downloads		permissions.sqlite	 webappsstore.sqlite-shm
+downloads.sqlite	Pictures		 webappsstore.sqlite-wal
+extensions.ini		places.sqlite		 workspace
+extensions.sqlite	places.sqlite-shm
+formhistory.sqlite	places.sqlite-wal
+/home/csmajs/ahsu013/ahsu013$ cd hw1   hw100
+/home/csmajs/ahsu013/hw100/ahsu013$ cd sklajf
+chdir: No such file or directory
+/home/csmajs/ahsu013/hw100/ahsu013$ cd ..
+/home/csmajs/ahsu013/ahsu013$ cd Desktop/cs100
+/home/csmajs/ahsu013/Desktop/cs100/ahsu013$ cd
+/home/csmajs/ahsu013/ahsu013$ pwd
+/home/csmajs/ahsu013
+/home/csmajs/ahsu013/ahsu013$ exit
+[s%%%%%%%%%%[u[0;32mahsu013[0;36m@[0;32mcs100[0;36m:[0;32m~/hw100[0;95m (signalrshell) [0;36m$[0m exit
+exit
+~
+ahsu013@hammer $ exit
+exit
+
+Script done on Tue 02 Dec 2014 02:02:38 PM PST

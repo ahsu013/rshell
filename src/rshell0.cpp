@@ -259,7 +259,7 @@ int prompt(vector<string> *cmd)
 	if (loginname== NULL)
 		perror("getlogin error");
 	char *cwd = get_current_dir_name(); 
-	cout << cwd << "/" <<   loginname<< "$ "; 
+	cout <<   loginname<< ":~" << cwd << "$ "; 
 
 	string b ; 
 	getline(cin, b); 
@@ -566,7 +566,9 @@ mode = findthesign(cmd->at(0));
 				cout << "Syntax Error "<< endl; 
 				exit(1); 
 			}
-			string path = getenv("PATH");
+			string path = getenv("PATH"); 
+			if(path.empty())
+				perror("getenv");
 			vector<string>paths;
 			while(1)
 			{
@@ -575,20 +577,22 @@ mode = findthesign(cmd->at(0));
 				paths.push_back(path.substr(0,path.find(":")));
 				path = path.substr(path.find(":")+1);
 			}
-
+	
+			int acc = 0; 
 			for(unsigned i = 0 ; i < paths.size(); i++)
 			{
 
 				string temp = argv[0]; 
 				paths.at(i) += "/" + temp; 
 
-					if ( access(const_cast<char*> (paths.at(i).c_str()) , X_OK) == 0)
+					if ((acc =  access(const_cast<char*> (paths.at(i).c_str()) , X_OK)) == 0)
 					{
 						execv( const_cast<char*> (paths.at(i).c_str()), argv); 
 						perror("execv"); 
 					}
 			}
-			cout << "could not find excutable" << endl;
+			if (acc< 0)
+				perror("access"); 	
 			exit(1); 
 		}
 
@@ -611,6 +615,26 @@ int main()
 	int flags = prompt(cmd); 
 	if (cmd->at(0).empty())
 		continue; 
+	if (cmd->at(0).find("cd") != string::npos)
+	{
+		int ermes; 
+		string home = getenv("HOME"); 
+		if (home.empty())
+			perror("getenv");
+
+		if (cmd->at(0).find_first_not_of("cd ") != string::npos)
+		{
+			if ((ermes = chdir(const_cast<char*>(cmd->at(0).substr(cmd->at(0).find_first_not_of("cd ")).c_str())))< 0)
+				perror("chdir"); 	
+		}
+		else
+		{
+			ermes = chdir(const_cast<char*>(home.c_str())); 
+			if (ermes<0)
+				perror("chdir");
+		}
+		continue;
+	}
 	int mode= findthesign(cmd->at(0)); 
 	if (mode<0)
 	{
